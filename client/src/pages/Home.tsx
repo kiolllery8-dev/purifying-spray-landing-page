@@ -3,6 +3,7 @@
  * Design: Dark Sacred Temple — 暗黑神聖殿堂美學
  * Color: Deep forest black + amber gold accents
  * Typography: Noto Serif TC (headings) + Noto Sans TC (body) + Playfair Display (accents)
+ * NOTE: All text sizes enlarged for accessibility (presbyopia-friendly)
  */
 
 import { useEffect, useRef, useState } from "react";
@@ -15,6 +16,14 @@ const CDN = {
   forest: "https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/forest_6ff7043b.png",
   shield: "https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/shield_5ad71f1e.png",
   spray: "https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/spray_38d007ca.png",
+  // 七大神聖植物圖片
+  paloSanto: "https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/palo_santo-39ESnvRteMRMaekM4xvpGS.webp",
+  juniper: "https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/juniper-4GBwxLrzzHMT7uVSuUxLWY.webp",
+  vetiver: "https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/vetiver-C2wc3N6hrpYnbsCjozYJhr.webp",
+  whiteSage: "https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/white_sage-HjyKZboh263Ai7LXXcroF8.webp",
+  atlasCedar: "https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/atlas_cedar-9dniBVrfswnmWqvzE842M3.webp",
+  frankincense: "https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/frankincense-UkD8S6LPms9kgV7pPVvBcW.webp",
+  myrrh: "https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/myrrh-YwasQaYexDgtRbPn4VyTaC.webp",
 };
 
 /* ─── Particles Background ─── */
@@ -98,7 +107,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="text-[oklch(0.75_0.12_85)] tracking-[0.35em] text-sm md:text-base font-light mb-6"
+          className="text-[oklch(0.75_0.12_85)] tracking-[0.35em] text-lg md:text-xl font-light mb-6"
           style={{ fontFamily: "'Noto Sans TC', sans-serif" }}
         >
           仙 佛 護 持 ・ 避 邪 淨 化
@@ -108,7 +117,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="gold-glow text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+          className="gold-glow text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight"
           style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.92 0.05 85)" }}
         >
           啟動你的
@@ -120,7 +129,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.8 }}
-          className="text-[oklch(0.8_0.02_85)] text-base md:text-lg max-w-lg leading-relaxed font-light"
+          className="text-[oklch(0.8_0.02_85)] text-xl md:text-2xl max-w-2xl leading-relaxed font-light"
         >
           七大神聖植物精油配方，一噴即為自己升起一道能量防護罩。
           <br className="hidden md:block" />
@@ -131,11 +140,11 @@ function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.8 }}
-          className="mt-10"
+          className="mt-12"
         >
           <a
             href="#product"
-            className="inline-block px-8 py-4 border border-[oklch(0.75_0.12_85/50%)] text-[oklch(0.85_0.1_85)] tracking-widest text-sm hover:bg-[oklch(0.75_0.12_85/15%)] transition-all duration-500 rounded-sm"
+            className="inline-block px-10 py-5 border border-[oklch(0.75_0.12_85/50%)] text-[oklch(0.85_0.1_85)] tracking-widest text-lg hover:bg-[oklch(0.75_0.12_85/15%)] transition-all duration-500 rounded-sm"
             style={{ fontFamily: "'Noto Sans TC', sans-serif" }}
           >
             探 索 守 護 之 力
@@ -152,9 +161,9 @@ function HeroSection() {
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            className="w-6 h-10 border border-[oklch(0.75_0.12_85/40%)] rounded-full flex justify-center pt-2"
+            className="w-7 h-12 border border-[oklch(0.75_0.12_85/40%)] rounded-full flex justify-center pt-2"
           >
-            <div className="w-1 h-2 rounded-full bg-[oklch(0.75_0.12_85/60%)]" />
+            <div className="w-1.5 h-3 rounded-full bg-[oklch(0.75_0.12_85/60%)]" />
           </motion.div>
         </motion.div>
       </motion.div>
@@ -172,18 +181,18 @@ function ProductSection() {
       <div className="container relative z-10">
         <AnimatedSection>
           <p
-            className="text-center text-[oklch(0.75_0.12_85)] tracking-[0.3em] text-xs md:text-sm mb-4"
+            className="text-center text-[oklch(0.75_0.12_85)] tracking-[0.3em] text-base md:text-lg mb-4"
             style={{ fontFamily: "'Noto Sans TC', sans-serif" }}
           >
             SACRED PROTECTION
           </p>
           <h2
-            className="text-center text-3xl md:text-5xl font-bold mb-6"
+            className="text-center text-4xl md:text-6xl font-bold mb-8"
             style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.9 0.04 85)" }}
           >
             神聖守護・隨身結界
           </h2>
-          <p className="text-center text-[oklch(0.65_0.02_85)] max-w-2xl mx-auto mb-20 leading-relaxed">
+          <p className="text-center text-[oklch(0.65_0.02_85)] text-xl md:text-2xl max-w-3xl mx-auto mb-20 leading-relaxed">
             融合秘魯聖木、杜松、岩蘭草等七大神聖植物精油，
             經由仙佛加持護持，為你在混亂環境中守住氣場。
           </p>
@@ -206,51 +215,51 @@ function ProductSection() {
 
           {/* Product Details */}
           <AnimatedSection delay={0.4}>
-            <div className="space-y-8">
+            <div className="space-y-10">
               <div className="flex items-start gap-5">
-                <div className="w-12 h-12 rounded-full border border-[oklch(0.75_0.12_85/30%)] flex items-center justify-center shrink-0">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="oklch(0.75 0.12 85)" strokeWidth="1.5">
+                <div className="w-14 h-14 rounded-full border border-[oklch(0.75_0.12_85/30%)] flex items-center justify-center shrink-0">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="oklch(0.75 0.12 85)" strokeWidth="1.5">
                     <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-2" style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.88 0.06 85)" }}>
+                  <h3 className="text-2xl font-semibold mb-3" style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.88 0.06 85)" }}>
                     仙佛加持・能量護持
                   </h3>
-                  <p className="text-[oklch(0.6_0.02_85)] leading-relaxed text-sm">
+                  <p className="text-[oklch(0.6_0.02_85)] leading-relaxed text-lg">
                     經由神聖儀式加持，每一瓶都承載著守護的力量。為你在辦公、公共空間、醫療院所等場所，建立無形的能量防護。
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start gap-5">
-                <div className="w-12 h-12 rounded-full border border-[oklch(0.75_0.12_85/30%)] flex items-center justify-center shrink-0">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="oklch(0.75 0.12 85)" strokeWidth="1.5">
+                <div className="w-14 h-14 rounded-full border border-[oklch(0.75_0.12_85/30%)] flex items-center justify-center shrink-0">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="oklch(0.75 0.12 85)" strokeWidth="1.5">
                     <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" />
                     <path d="M12 6V12L16 14" />
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-2" style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.88 0.06 85)" }}>
+                  <h3 className="text-2xl font-semibold mb-3" style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.88 0.06 85)" }}>
                     七大神聖植物精油
                   </h3>
-                  <p className="text-[oklch(0.6_0.02_85)] leading-relaxed text-sm">
+                  <p className="text-[oklch(0.6_0.02_85)] leading-relaxed text-lg">
                     秘魯聖木 Palo Santo、杜松精油、岩蘭草、白鼠尾草、大西洋雪松、乳香、沒藥 — 每一滴都是大自然的淨化結界。
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start gap-5">
-                <div className="w-12 h-12 rounded-full border border-[oklch(0.75_0.12_85/30%)] flex items-center justify-center shrink-0">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="oklch(0.75 0.12 85)" strokeWidth="1.5">
+                <div className="w-14 h-14 rounded-full border border-[oklch(0.75_0.12_85/30%)] flex items-center justify-center shrink-0">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="oklch(0.75 0.12 85)" strokeWidth="1.5">
                     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-2" style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.88 0.06 85)" }}>
+                  <h3 className="text-2xl font-semibold mb-3" style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.88 0.06 85)" }}>
                     隨身攜帶・隨時淨化
                   </h3>
-                  <p className="text-[oklch(0.6_0.02_85)] leading-relaxed text-sm">
+                  <p className="text-[oklch(0.6_0.02_85)] leading-relaxed text-lg">
                     10ml 輕巧瓶身，放入口袋或包包，隨時隨地為自己噴上一道結界。搬入新居、探病、參加告別式前，都能即時啟動防護。
                   </p>
                 </div>
@@ -266,13 +275,13 @@ function ProductSection() {
 /* ─── Ingredients Section ─── */
 function IngredientsSection() {
   const ingredients = [
-    { name: "秘魯聖木", en: "Palo Santo", desc: "南美洲千年淨化聖物，燃燒時散發溫暖木質香氣，驅散負面能量。" },
-    { name: "杜松精油", en: "Juniper", desc: "歐洲傳統淨化植物，守護空間的純淨與安寧。" },
-    { name: "岩蘭草", en: "Vetiver", desc: "深根大地的穩定力量，幫助扎根與安定心神。" },
-    { name: "白鼠尾草", en: "White Sage", desc: "北美原住民神聖草藥，強力淨化與祝福之用。" },
-    { name: "大西洋雪松", en: "Atlas Cedar", desc: "古埃及神殿用材，象徵永恆與神聖的保護。" },
-    { name: "乳香", en: "Frankincense", desc: "三千年神聖薰香，連結天地、提升靈性頻率。" },
-    { name: "沒藥", en: "Myrrh", desc: "古老的療癒聖品，修復能量場的裂縫與損傷。" },
+    { name: "秘魯聖木", en: "Palo Santo", desc: "南美洲千年淨化聖物，燃燒時散發溫暖木質香氣，驅散負面能量。", img: CDN.paloSanto },
+    { name: "杜松精油", en: "Juniper", desc: "歐洲傳統淨化植物，守護空間的純淨與安寧。", img: CDN.juniper },
+    { name: "岩蘭草", en: "Vetiver", desc: "深根大地的穩定力量，幫助扎根與安定心神。", img: CDN.vetiver },
+    { name: "白鼠尾草", en: "White Sage", desc: "北美原住民神聖草藥，強力淨化與祝福之用。", img: CDN.whiteSage },
+    { name: "大西洋雪松", en: "Atlas Cedar", desc: "古埃及神殿用材，象徵永恆與神聖的保護。", img: CDN.atlasCedar },
+    { name: "乳香", en: "Frankincense", desc: "三千年神聖薰香，連結天地、提升靈性頻率。", img: CDN.frankincense },
+    { name: "沒藥", en: "Myrrh", desc: "古老的療癒聖品，修復能量場的裂縫與損傷。", img: CDN.myrrh },
   ];
 
   return (
@@ -280,56 +289,78 @@ function IngredientsSection() {
       <div className="container relative z-10">
         <AnimatedSection>
           <p
-            className="text-center text-[oklch(0.75_0.12_85)] tracking-[0.3em] text-xs md:text-sm mb-4"
+            className="text-center text-[oklch(0.75_0.12_85)] tracking-[0.3em] text-base md:text-lg mb-4"
             style={{ fontFamily: "'Noto Sans TC', sans-serif" }}
           >
             SEVEN SACRED BOTANICALS
           </p>
           <h2
-            className="text-center text-3xl md:text-5xl font-bold mb-6"
+            className="text-center text-4xl md:text-6xl font-bold mb-8"
             style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.9 0.04 85)" }}
           >
             七大神聖植物
           </h2>
-          <p className="text-center text-[oklch(0.6_0.02_85)] max-w-xl mx-auto mb-20 leading-relaxed">
+          <p className="text-center text-[oklch(0.6_0.02_85)] text-xl md:text-2xl max-w-2xl mx-auto mb-20 leading-relaxed">
             每一種植物都承載著千年的淨化智慧，
             為你編織最強大的能量防護網。
           </p>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {ingredients.slice(0, 6).map((item, i) => (
             <AnimatedSection key={item.name} delay={i * 0.1}>
-              <div className="group relative p-6 rounded-lg border border-[oklch(0.75_0.12_85/10%)] bg-[oklch(0.13_0.01_150/80%)] backdrop-blur-sm hover:border-[oklch(0.75_0.12_85/30%)] hover:bg-[oklch(0.15_0.01_150/90%)] transition-all duration-500">
+              <div className="group relative rounded-xl border border-[oklch(0.75_0.12_85/10%)] bg-[oklch(0.13_0.01_150/80%)] backdrop-blur-sm hover:border-[oklch(0.75_0.12_85/30%)] hover:bg-[oklch(0.15_0.01_150/90%)] transition-all duration-500 overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[oklch(0.75_0.12_85/20%)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <p className="text-[oklch(0.75_0.12_85/60%)] text-xs tracking-widest mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
-                  {item.en}
-                </p>
-                <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.88 0.06 85)" }}>
-                  {item.name}
-                </h3>
-                <p className="text-[oklch(0.55_0.02_85)] text-sm leading-relaxed">
-                  {item.desc}
-                </p>
+                {/* Plant Image */}
+                <div className="w-full h-48 md:h-56 overflow-hidden">
+                  <img
+                    src={item.img}
+                    alt={item.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.13_0.01_150)] via-transparent to-transparent" style={{ top: '30%' }} />
+                </div>
+                {/* Text Content */}
+                <div className="p-6 pt-4">
+                  <p className="text-[oklch(0.75_0.12_85/60%)] text-sm md:text-base tracking-widest mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    {item.en}
+                  </p>
+                  <h3 className="text-2xl md:text-3xl font-semibold mb-3" style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.88 0.06 85)" }}>
+                    {item.name}
+                  </h3>
+                  <p className="text-[oklch(0.55_0.02_85)] text-base md:text-lg leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
               </div>
             </AnimatedSection>
           ))}
         </div>
 
         {/* 7th ingredient centered */}
-        <div className="max-w-sm mx-auto mt-6">
+        <div className="max-w-md mx-auto mt-8">
           <AnimatedSection delay={0.6}>
-            <div className="group relative p-6 rounded-lg border border-[oklch(0.75_0.12_85/10%)] bg-[oklch(0.13_0.01_150/80%)] backdrop-blur-sm hover:border-[oklch(0.75_0.12_85/30%)] hover:bg-[oklch(0.15_0.01_150/90%)] transition-all duration-500">
+            <div className="group relative rounded-xl border border-[oklch(0.75_0.12_85/10%)] bg-[oklch(0.13_0.01_150/80%)] backdrop-blur-sm hover:border-[oklch(0.75_0.12_85/30%)] hover:bg-[oklch(0.15_0.01_150/90%)] transition-all duration-500 overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[oklch(0.75_0.12_85/20%)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <p className="text-[oklch(0.75_0.12_85/60%)] text-xs tracking-widest mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
-                {ingredients[6].en}
-              </p>
-              <h3 className="text-xl font-semibold mb-3" style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.88 0.06 85)" }}>
-                {ingredients[6].name}
-              </h3>
-              <p className="text-[oklch(0.55_0.02_85)] text-sm leading-relaxed">
-                {ingredients[6].desc}
-              </p>
+              <div className="w-full h-48 md:h-56 overflow-hidden">
+                <img
+                  src={ingredients[6].img}
+                  alt={ingredients[6].name}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.13_0.01_150)] via-transparent to-transparent" style={{ top: '30%' }} />
+              </div>
+              <div className="p-6 pt-4">
+                <p className="text-[oklch(0.75_0.12_85/60%)] text-sm md:text-base tracking-widest mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  {ingredients[6].en}
+                </p>
+                <h3 className="text-2xl md:text-3xl font-semibold mb-3" style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.88 0.06 85)" }}>
+                  {ingredients[6].name}
+                </h3>
+                <p className="text-[oklch(0.55_0.02_85)] text-base md:text-lg leading-relaxed">
+                  {ingredients[6].desc}
+                </p>
+              </div>
             </div>
           </AnimatedSection>
         </div>
@@ -348,23 +379,23 @@ function ShieldSection() {
       </div>
 
       <div className="container relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center">
           <AnimatedSection>
             <p
-              className="text-[oklch(0.75_0.12_85)] tracking-[0.3em] text-xs md:text-sm mb-4"
+              className="text-[oklch(0.75_0.12_85)] tracking-[0.3em] text-base md:text-lg mb-4"
               style={{ fontFamily: "'Noto Sans TC', sans-serif" }}
             >
               ENERGY SHIELD ACTIVATED
             </p>
             <h2
-              className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight"
+              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-10 leading-tight"
               style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.9 0.04 85)" }}
             >
               為自己升起
               <br />
               <span className="gold-glow" style={{ color: "oklch(0.8 0.14 85)" }}>一道能量防護罩</span>
             </h2>
-            <p className="text-[oklch(0.65_0.02_85)] text-base md:text-lg leading-relaxed mb-12 max-w-2xl mx-auto">
+            <p className="text-[oklch(0.65_0.02_85)] text-xl md:text-2xl leading-relaxed mb-14 max-w-3xl mx-auto">
               在混亂的環境中，你需要守住自己的氣場。
               一噴，讓安定與保護留在身上，隔開外界的干擾。
               無論是辦公室、醫院、公共空間，還是搬入新居、參加告別式 —
@@ -373,18 +404,18 @@ function ShieldSection() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.3}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-16">
               {[
                 { icon: "🛡️", title: "守護氣場", desc: "在混亂環境中維持內在安定" },
                 { icon: "✨", title: "淨化空間", desc: "為居家與工作場所帶來清淨" },
                 { icon: "🌿", title: "天然配方", desc: "100% 純天然植物精油萃取" },
               ].map((item) => (
-                <div key={item.title} className="p-6">
-                  <div className="text-3xl mb-4">{item.icon}</div>
-                  <h3 className="text-lg font-semibold mb-2" style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.88 0.06 85)" }}>
+                <div key={item.title} className="p-8">
+                  <div className="text-5xl mb-5">{item.icon}</div>
+                  <h3 className="text-2xl font-semibold mb-3" style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.88 0.06 85)" }}>
                     {item.title}
                   </h3>
-                  <p className="text-[oklch(0.55_0.02_85)] text-sm">{item.desc}</p>
+                  <p className="text-[oklch(0.55_0.02_85)] text-lg">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -413,13 +444,13 @@ function UsageSection() {
       <div className="container relative z-10">
         <AnimatedSection>
           <p
-            className="text-center text-[oklch(0.75_0.12_85)] tracking-[0.3em] text-xs md:text-sm mb-4"
+            className="text-center text-[oklch(0.75_0.12_85)] tracking-[0.3em] text-base md:text-lg mb-4"
             style={{ fontFamily: "'Noto Sans TC', sans-serif" }}
           >
             WHEN TO USE
           </p>
           <h2
-            className="text-center text-3xl md:text-5xl font-bold mb-16"
+            className="text-center text-4xl md:text-6xl font-bold mb-16"
             style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.9 0.04 85)" }}
           >
             適用場景
@@ -427,7 +458,7 @@ function UsageSection() {
         </AnimatedSection>
 
         <AnimatedSection delay={0.2}>
-          <div className="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-5 max-w-4xl mx-auto">
             {scenarios.map((s, i) => (
               <motion.div
                 key={s}
@@ -435,7 +466,7 @@ function UsageSection() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.08, duration: 0.5 }}
                 viewport={{ once: true }}
-                className="px-6 py-3 rounded-full border border-[oklch(0.75_0.12_85/20%)] text-[oklch(0.8_0.04_85)] text-sm hover:bg-[oklch(0.75_0.12_85/10%)] hover:border-[oklch(0.75_0.12_85/40%)] transition-all duration-400"
+                className="px-8 py-4 rounded-full border border-[oklch(0.75_0.12_85/20%)] text-[oklch(0.8_0.04_85)] text-lg md:text-xl hover:bg-[oklch(0.75_0.12_85/10%)] hover:border-[oklch(0.75_0.12_85/40%)] transition-all duration-400"
               >
                 {s}
               </motion.div>
@@ -454,13 +485,13 @@ function VideoSection() {
       <div className="container relative z-10">
         <AnimatedSection>
           <p
-            className="text-center text-[oklch(0.75_0.12_85)] tracking-[0.3em] text-xs md:text-sm mb-4"
+            className="text-center text-[oklch(0.75_0.12_85)] tracking-[0.3em] text-base md:text-lg mb-4"
             style={{ fontFamily: "'Noto Sans TC', sans-serif" }}
           >
             WATCH THE FILM
           </p>
           <h2
-            className="text-center text-3xl md:text-5xl font-bold mb-16"
+            className="text-center text-4xl md:text-6xl font-bold mb-16"
             style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.9 0.04 85)" }}
           >
             感受守護的力量
@@ -496,33 +527,33 @@ function CTASection() {
           <img
             src={CDN.productOriginal}
             alt="淨化噴霧產品"
-            className="w-24 md:w-32 mx-auto mb-10 drop-shadow-[0_0_30px_oklch(0.75_0.12_85/30%)]"
+            className="w-28 md:w-36 mx-auto mb-12 drop-shadow-[0_0_30px_oklch(0.75_0.12_85/30%)]"
           />
           <h2
-            className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 gold-glow leading-tight"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 gold-glow leading-tight"
             style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.88 0.08 85)" }}
           >
             立即噴上你的
             <br />
             第一道結界 →
           </h2>
-          <p className="text-[oklch(0.6_0.02_85)] text-base md:text-lg max-w-lg mx-auto mb-12 leading-relaxed">
+          <p className="text-[oklch(0.6_0.02_85)] text-xl md:text-2xl max-w-lg mx-auto mb-14 leading-relaxed">
             願守護神時刻看顧您。
             <br />
             讓安定與保護，從此刻開始。
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
             <a
               href="#"
-              className="inline-block px-10 py-4 bg-[oklch(0.75_0.12_85)] text-[oklch(0.1_0.01_150)] font-semibold tracking-wider text-sm rounded-sm hover:bg-[oklch(0.8_0.12_85)] transition-all duration-400 hover:shadow-[0_0_30px_oklch(0.75_0.12_85/40%)]"
+              className="inline-block px-12 py-5 bg-[oklch(0.75_0.12_85)] text-[oklch(0.1_0.01_150)] font-semibold tracking-wider text-lg rounded-sm hover:bg-[oklch(0.8_0.12_85)] transition-all duration-400 hover:shadow-[0_0_30px_oklch(0.75_0.12_85/40%)]"
               style={{ fontFamily: "'Noto Sans TC', sans-serif" }}
             >
               立 即 購 買
             </a>
             <a
               href="#"
-              className="inline-block px-10 py-4 border border-[oklch(0.75_0.12_85/40%)] text-[oklch(0.8_0.08_85)] tracking-wider text-sm rounded-sm hover:bg-[oklch(0.75_0.12_85/10%)] transition-all duration-400"
+              className="inline-block px-12 py-5 border border-[oklch(0.75_0.12_85/40%)] text-[oklch(0.8_0.08_85)] tracking-wider text-lg rounded-sm hover:bg-[oklch(0.75_0.12_85/10%)] transition-all duration-400"
               style={{ fontFamily: "'Noto Sans TC', sans-serif" }}
             >
               LINE 諮 詢
@@ -537,15 +568,15 @@ function CTASection() {
 /* ─── Footer ─── */
 function Footer() {
   return (
-    <footer className="border-t border-[oklch(1_0_0/6%)] py-12" style={{ background: "oklch(0.08 0.01 150)" }}>
+    <footer className="border-t border-[oklch(1_0_0/6%)] py-14" style={{ background: "oklch(0.08 0.01 150)" }}>
       <div className="container text-center">
         <p
-          className="text-[oklch(0.75_0.12_85/60%)] text-xs tracking-[0.2em] mb-3"
+          className="text-[oklch(0.75_0.12_85/60%)] text-base tracking-[0.2em] mb-3"
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
           Sacred Protection Spray
         </p>
-        <p className="text-[oklch(0.45_0.01_85)] text-xs">
+        <p className="text-[oklch(0.45_0.01_85)] text-base">
           © 2024 仙佛護持・避邪淨化隨身噴霧. All rights reserved.
         </p>
       </div>
