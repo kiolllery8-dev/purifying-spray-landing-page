@@ -478,6 +478,104 @@ function UsageSection() {
   );
 }
 
+/* ─── How To Use Section ─── */
+function HowToUseSection() {
+  const steps = [
+    {
+      step: "01",
+      title: "隨身攜帶",
+      desc: "10ml 輕巧瓶身，放入口袋或包包，隨時準備好你的結界。",
+      icon: (
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="oklch(0.75 0.12 85)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+          <circle cx="12" cy="7" r="4" />
+        </svg>
+      ),
+    },
+    {
+      step: "02",
+      title: "噴灑淨化",
+      desc: "將噴霧噴在自己的外部衣物部位，或想要淨化的部位，讓神聖植物精油為你建立防護。",
+      icon: (
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="oklch(0.75 0.12 85)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+        </svg>
+      ),
+    },
+    {
+      step: "03",
+      title: "安心守護",
+      desc: "讓能量防護罩包覆全身，安心面對各種環境與場合。",
+      icon: (
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="oklch(0.75 0.12 85)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        </svg>
+      ),
+    },
+  ];
+
+  return (
+    <div className="relative py-20 md:py-28" style={{ background: "oklch(0.09 0.012 150)" }}>
+      <div className="container relative z-10">
+        <AnimatedSection>
+          <p
+            className="text-center text-[oklch(0.75_0.12_85)] tracking-[0.3em] text-base md:text-lg mb-3"
+            style={{ fontFamily: "'Noto Sans TC', sans-serif" }}
+          >
+            HOW TO USE
+          </p>
+          <h2
+            className="text-center text-4xl md:text-6xl font-bold mb-6"
+            style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.9 0.04 85)" }}
+          >
+            使用方式
+          </h2>
+          <p className="text-center text-[oklch(0.6_0.02_85)] text-xl md:text-2xl max-w-2xl mx-auto mb-14 leading-relaxed">
+            帶在身上，隨時噴在自己外部衣物部位
+            或想要淨化的部位即可。
+          </p>
+        </AnimatedSection>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {steps.map((item, i) => (
+            <AnimatedSection key={item.step} delay={i * 0.15}>
+              <div className="group relative p-8 rounded-xl border border-[oklch(0.75_0.12_85/10%)] bg-[oklch(0.13_0.01_150/80%)] backdrop-blur-sm hover:border-[oklch(0.75_0.12_85/30%)] transition-all duration-500 text-center">
+                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[oklch(0.75_0.12_85/20%)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Step Number */}
+                <p
+                  className="text-[oklch(0.75_0.12_85/30%)] text-6xl font-bold mb-4"
+                  style={{ fontFamily: "'Playfair Display', serif" }}
+                >
+                  {item.step}
+                </p>
+
+                {/* Icon */}
+                <div className="w-16 h-16 mx-auto rounded-full border border-[oklch(0.75_0.12_85/30%)] flex items-center justify-center mb-5">
+                  {item.icon}
+                </div>
+
+                {/* Title */}
+                <h3
+                  className="text-2xl md:text-3xl font-semibold mb-4"
+                  style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.88 0.06 85)" }}
+                >
+                  {item.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-[oklch(0.6_0.02_85)] text-lg md:text-xl leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            </AnimatedSection>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ─── Video Section ─── */
 function VideoSection() {
   return (
@@ -739,6 +837,7 @@ export default function Home() {
       <IngredientsSection />
       <ShieldSection />
       <UsageSection />
+      <HowToUseSection />
       <VideoSection />
       <TestimonialsSection />
       <CTASection />
