@@ -673,20 +673,26 @@ function CTASection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
-            <a
+            <motion.a
               href="#"
-              className="inline-block px-12 py-5 bg-[oklch(0.75_0.12_85)] text-[oklch(0.1_0.01_150)] font-semibold tracking-wider text-lg rounded-sm hover:bg-[oklch(0.8_0.12_85)] transition-all duration-400 hover:shadow-[0_0_30px_oklch(0.75_0.12_85/40%)]"
+              whileHover={{ scale: 1.06, boxShadow: "0 0 40px oklch(0.75 0.12 85 / 50%), 0 0 80px oklch(0.75 0.12 85 / 20%)" }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 15 }}
+              className="inline-block px-12 py-5 bg-[oklch(0.75_0.12_85)] text-[oklch(0.1_0.01_150)] font-semibold tracking-wider text-lg rounded-sm transition-colors duration-300 hover:bg-[oklch(0.8_0.12_85)]"
               style={{ fontFamily: "'Noto Sans TC', sans-serif" }}
             >
               立 即 購 買
-            </a>
-            <a
+            </motion.a>
+            <motion.a
               href="#"
-              className="inline-block px-12 py-5 border border-[oklch(0.75_0.12_85/40%)] text-[oklch(0.8_0.08_85)] tracking-wider text-lg rounded-sm hover:bg-[oklch(0.75_0.12_85/10%)] transition-all duration-400"
+              whileHover={{ scale: 1.06, boxShadow: "0 0 30px oklch(0.75 0.12 85 / 25%)" }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 15 }}
+              className="inline-block px-12 py-5 border border-[oklch(0.75_0.12_85/40%)] text-[oklch(0.8_0.08_85)] tracking-wider text-lg rounded-sm transition-colors duration-300 hover:bg-[oklch(0.75_0.12_85/10%)] hover:border-[oklch(0.75_0.12_85/70%)]"
               style={{ fontFamily: "'Noto Sans TC', sans-serif" }}
             >
               LINE 諮 詢
-            </a>
+            </motion.a>
           </div>
         </AnimatedSection>
       </div>
