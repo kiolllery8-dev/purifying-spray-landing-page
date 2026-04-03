@@ -174,7 +174,7 @@ function HeroSection() {
 /* ─── Product Showcase ─── */
 function ProductSection() {
   return (
-    <div id="product" className="relative py-28 md:py-36 overflow-hidden">
+    <div id="product" className="relative py-20 md:py-28 overflow-hidden">
       {/* Decorative glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[oklch(0.75_0.12_85/6%)] blur-[120px]" />
 
@@ -192,9 +192,12 @@ function ProductSection() {
           >
             神聖守護・隨身結界
           </h2>
-          <p className="text-center text-[oklch(0.65_0.02_85)] text-xl md:text-2xl max-w-3xl mx-auto mb-20 leading-relaxed">
+          <p className="text-center text-[oklch(0.65_0.02_85)] text-xl md:text-2xl max-w-3xl mx-auto mb-6 leading-relaxed">
             融合秘魯聖木、杜松、岩蘭草等七大神聖植物精油，
             經由仙佛加持護持，為你在混亂環境中守住氣場。
+          </p>
+          <p className="text-center text-3xl md:text-4xl font-bold mb-16" style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.85 0.12 85)" }}>
+            NT$290 <span className="text-xl md:text-2xl font-normal text-[oklch(0.6_0.02_85)]">/  10ML</span>
           </p>
         </AnimatedSection>
 
@@ -285,22 +288,22 @@ function IngredientsSection() {
   ];
 
   return (
-    <div className="relative py-28 md:py-36" style={{ background: "linear-gradient(180deg, oklch(0.1 0.01 150) 0%, oklch(0.08 0.015 150) 50%, oklch(0.1 0.01 150) 100%)" }}>
+    <div className="relative py-20 md:py-28" style={{ background: "linear-gradient(180deg, oklch(0.1 0.01 150) 0%, oklch(0.08 0.015 150) 50%, oklch(0.1 0.01 150) 100%)" }}>
       <div className="container relative z-10">
         <AnimatedSection>
           <p
-            className="text-center text-[oklch(0.75_0.12_85)] tracking-[0.3em] text-base md:text-lg mb-4"
+            className="text-center text-[oklch(0.75_0.12_85)] tracking-[0.3em] text-base md:text-lg mb-3"
             style={{ fontFamily: "'Noto Sans TC', sans-serif" }}
           >
             SEVEN SACRED BOTANICALS
           </p>
           <h2
-            className="text-center text-4xl md:text-6xl font-bold mb-8"
+            className="text-center text-4xl md:text-6xl font-bold mb-6"
             style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.9 0.04 85)" }}
           >
             七大神聖植物
           </h2>
-          <p className="text-center text-[oklch(0.6_0.02_85)] text-xl md:text-2xl max-w-2xl mx-auto mb-20 leading-relaxed">
+          <p className="text-center text-[oklch(0.6_0.02_85)] text-xl md:text-2xl max-w-2xl mx-auto mb-14 leading-relaxed">
             每一種植物都承載著千年的淨化智慧，
             為你編織最強大的能量防護網。
           </p>
@@ -372,7 +375,7 @@ function IngredientsSection() {
 /* ─── Shield / Protection Visual Section ─── */
 function ShieldSection() {
   return (
-    <div className="relative py-28 md:py-36 overflow-hidden">
+    <div className="relative py-20 md:py-28 overflow-hidden">
       <div className="absolute inset-0">
         <img src={CDN.shield} alt="" className="w-full h-full object-cover opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-b from-[oklch(0.1_0.01_150)] via-transparent to-[oklch(0.1_0.01_150)]" />
@@ -440,7 +443,7 @@ function UsageSection() {
   ];
 
   return (
-    <div className="relative py-28 md:py-36" style={{ background: "linear-gradient(180deg, oklch(0.1 0.01 150) 0%, oklch(0.12 0.01 150) 100%)" }}>
+    <div className="relative py-20 md:py-28" style={{ background: "linear-gradient(180deg, oklch(0.1 0.01 150) 0%, oklch(0.12 0.01 150) 100%)" }}>
       <div className="container relative z-10">
         <AnimatedSection>
           <p
@@ -450,7 +453,7 @@ function UsageSection() {
             WHEN TO USE
           </p>
           <h2
-            className="text-center text-4xl md:text-6xl font-bold mb-16"
+            className="text-center text-4xl md:text-6xl font-bold mb-10"
             style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.9 0.04 85)" }}
           >
             適用場景
@@ -481,7 +484,7 @@ function UsageSection() {
 /* ─── Video Section ─── */
 function VideoSection() {
   return (
-    <div className="relative py-28 md:py-36 overflow-hidden" style={{ background: "oklch(0.08 0.015 150)" }}>
+    <div className="relative py-20 md:py-28 overflow-hidden" style={{ background: "oklch(0.08 0.015 150)" }}>
       <div className="container relative z-10">
         <AnimatedSection>
           <p
@@ -491,7 +494,7 @@ function VideoSection() {
             WATCH THE FILM
           </p>
           <h2
-            className="text-center text-4xl md:text-6xl font-bold mb-16"
+            className="text-center text-4xl md:text-6xl font-bold mb-10"
             style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.9 0.04 85)" }}
           >
             感受守護的力量
@@ -522,7 +525,7 @@ function TestimonialsSection() {
       name: "林小萱",
       age: 30,
       avatar: "https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/avatar_hospital-buALMgnoPEUAucXsAsUggT.webp",
-      scenario: "去醫院",
+      scenario: "醫院",
       quote: "每次去醫院探病前，我都會先噴一下。回家後不再覺得身體沉重、精神疲憊，整個人清爽很多。現在已經是我包包裡的必備品了。",
     },
     {
@@ -550,7 +553,7 @@ function TestimonialsSection() {
       name: "劉美華",
       age: 55,
       avatar: "https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/avatar_funeral-hAP56HEnLxJiuRAwVKevS5.webp",
-      scenario: "喪事",
+      scenario: "喪葬場所",
       quote: "參加完告別式後總覺得身體不舒服、心情低落好幾天。現在每次去之前和之後都會噴，回來後身心狀態穩定許多，不再被那股沉重的氣場影響。",
     },
     {
@@ -570,22 +573,22 @@ function TestimonialsSection() {
   ];
 
   return (
-    <div className="relative py-28 md:py-36" style={{ background: "linear-gradient(180deg, oklch(0.08 0.015 150) 0%, oklch(0.1 0.01 150) 50%, oklch(0.08 0.015 150) 100%)" }}>
+    <div className="relative py-20 md:py-28" style={{ background: "linear-gradient(180deg, oklch(0.08 0.015 150) 0%, oklch(0.1 0.01 150) 50%, oklch(0.08 0.015 150) 100%)" }}>
       <div className="container relative z-10">
         <AnimatedSection>
           <p
-            className="text-center text-[oklch(0.75_0.12_85)] tracking-[0.3em] text-base md:text-lg mb-4"
+            className="text-center text-[oklch(0.75_0.12_85)] tracking-[0.3em] text-base md:text-lg mb-3"
             style={{ fontFamily: "'Noto Sans TC', sans-serif" }}
           >
             REAL TESTIMONIALS
           </p>
           <h2
-            className="text-center text-4xl md:text-6xl font-bold mb-8"
+            className="text-center text-4xl md:text-6xl font-bold mb-6"
             style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.9 0.04 85)" }}
           >
             使用者真實見證
           </h2>
-          <p className="text-center text-[oklch(0.6_0.02_85)] text-xl md:text-2xl max-w-2xl mx-auto mb-20 leading-relaxed">
+          <p className="text-center text-[oklch(0.6_0.02_85)] text-xl md:text-2xl max-w-2xl mx-auto mb-14 leading-relaxed">
             來自各行各業的真實回饋，
             見證守護的力量。
           </p>
@@ -643,7 +646,7 @@ function TestimonialsSection() {
 /* ─── CTA Section ─── */
 function CTASection() {
   return (
-    <div className="relative py-28 md:py-40 overflow-hidden">
+    <div className="relative py-20 md:py-28 overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-[oklch(0.75_0.12_85/8%)] blur-[150px]" />
 
@@ -693,7 +696,7 @@ function CTASection() {
 /* ─── Footer ─── */
 function Footer() {
   return (
-    <footer className="border-t border-[oklch(1_0_0/6%)] py-14" style={{ background: "oklch(0.08 0.01 150)" }}>
+    <footer className="border-t border-[oklch(1_0_0/6%)] py-10" style={{ background: "oklch(0.08 0.01 150)" }}>
       <div className="container text-center">
         <p
           className="text-[oklch(0.75_0.12_85/60%)] text-base tracking-[0.2em] mb-3"
@@ -702,7 +705,7 @@ function Footer() {
           Sacred Protection Spray
         </p>
         <p className="text-[oklch(0.45_0.01_85)] text-base">
-          © 2024 仙佛護持・避邪淨化隨身噴霧. All rights reserved.
+          © 2026 仙佛護持・避邪淨化隨身噴霧. All rights reserved.
         </p>
       </div>
     </footer>
