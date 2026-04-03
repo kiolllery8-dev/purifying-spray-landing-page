@@ -674,7 +674,9 @@ function CTASection() {
 
           <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
             <motion.a
-              href="#"
+              href="https://www.auslife.com.tw/products/f11e2fa5-1e20-42cf-8e0c-3aa8d4f0e07d"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.06, boxShadow: "0 0 40px oklch(0.75 0.12 85 / 50%), 0 0 80px oklch(0.75 0.12 85 / 20%)" }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 15 }}
@@ -684,7 +686,9 @@ function CTASection() {
               立 即 購 買
             </motion.a>
             <motion.a
-              href="#"
+              href="https://line.me/R/ti/p/@ssh4900o"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.06, boxShadow: "0 0 30px oklch(0.75 0.12 85 / 25%)" }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 15 }}
