@@ -515,6 +515,131 @@ function VideoSection() {
   );
 }
 
+/* ─── Testimonials Section ─── */
+function TestimonialsSection() {
+  const testimonials = [
+    {
+      name: "林小萱",
+      age: 30,
+      avatar: "https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/avatar_hospital-buALMgnoPEUAucXsAsUggT.webp",
+      scenario: "去醫院",
+      quote: "每次去醫院探病前，我都會先噴一下。回家後不再覺得身體沉重、精神疲憊，整個人清爽很多。現在已經是我包包裡的必備品了。",
+    },
+    {
+      name: "陳志豪",
+      age: 45,
+      avatar: "https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/avatar_spirit-PaKSCv5u5wSWCfgQ5yH7Tj.webp",
+      scenario: "卡到陰",
+      quote: "之前常常莫名頭痛、失眠，朋友說可能是卡到陰。用了這瓶噴霧後，睡眠品質明顯改善，那種沉重壓迫感也消失了，真的很神奇。",
+    },
+    {
+      name: "張雅婷",
+      age: 35,
+      avatar: "https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/avatar_colleague-RgfHtbUUupZpvHD88TXCdB.webp",
+      scenario: "防小人",
+      quote: "辦公室人際關係很複雜，總覺得有人在背後搞小動作。開始每天上班前噴一下之後，工作氛圍變好了，小人也不再來找麻煩。",
+    },
+    {
+      name: "王柏翰",
+      age: 28,
+      avatar: "https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/avatar_unlucky-7SH2JgVqUPwWcHNU67nKmu.webp",
+      scenario: "倒楣事",
+      quote: "有一陣子諸事不順，車子壞、手機摔、工作也出包。朋友推薦我試試這瓶噴霧，用了一週後運勢真的有感回升，倒楣的事情不再接連發生。",
+    },
+    {
+      name: "劉美華",
+      age: 55,
+      avatar: "https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/avatar_funeral-hAP56HEnLxJiuRAwVKevS5.webp",
+      scenario: "喪事",
+      quote: "參加完告別式後總覺得身體不舒服、心情低落好幾天。現在每次去之前和之後都會噴，回來後身心狀態穩定許多，不再被那股沉重的氣場影響。",
+    },
+    {
+      name: "許淑芬",
+      age: 40,
+      avatar: "https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/avatar_miasma-F7pJemGCxckvyARbRTmrr9.webp",
+      scenario: "防障氣",
+      quote: "我對環境的能量很敏感，去人多的地方常常覺得頭暈不適。噴了這瓶之後，就像多了一層隱形的保護罩，再也不怕被外面的障氣影響了。",
+    },
+    {
+      name: "黃國棟",
+      age: 65,
+      avatar: "https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/avatar_karma-AhhQWgXELyAUdY9ypnX7YA.webp",
+      scenario: "去業障",
+      quote: "修行多年，深知業障對身心的影響。這瓶噴霧融合了七大神聖植物，每次靜坐前噴灑，能明顯感受到空間的淨化與內心的安定，是修行路上的好夥伴。",
+    },
+  ];
+
+  return (
+    <div className="relative py-28 md:py-36" style={{ background: "linear-gradient(180deg, oklch(0.08 0.015 150) 0%, oklch(0.1 0.01 150) 50%, oklch(0.08 0.015 150) 100%)" }}>
+      <div className="container relative z-10">
+        <AnimatedSection>
+          <p
+            className="text-center text-[oklch(0.75_0.12_85)] tracking-[0.3em] text-base md:text-lg mb-4"
+            style={{ fontFamily: "'Noto Sans TC', sans-serif" }}
+          >
+            REAL TESTIMONIALS
+          </p>
+          <h2
+            className="text-center text-4xl md:text-6xl font-bold mb-8"
+            style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.9 0.04 85)" }}
+          >
+            使用者真實見證
+          </h2>
+          <p className="text-center text-[oklch(0.6_0.02_85)] text-xl md:text-2xl max-w-2xl mx-auto mb-20 leading-relaxed">
+            來自各行各業的真實回饋，
+            見證守護的力量。
+          </p>
+        </AnimatedSection>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {testimonials.map((t, i) => (
+            <AnimatedSection key={t.name} delay={i * 0.1}>
+              <div className="group relative p-8 rounded-xl border border-[oklch(0.75_0.12_85/10%)] bg-[oklch(0.13_0.01_150/80%)] backdrop-blur-sm hover:border-[oklch(0.75_0.12_85/25%)] transition-all duration-500">
+                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[oklch(0.75_0.12_85/20%)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Scenario Tag */}
+                <div className="inline-block px-4 py-1.5 rounded-full border border-[oklch(0.75_0.12_85/30%)] bg-[oklch(0.75_0.12_85/8%)] mb-6">
+                  <span className="text-[oklch(0.8_0.1_85)] text-base font-medium">{t.scenario}</span>
+                </div>
+
+                {/* Quote */}
+                <p className="text-[oklch(0.7_0.02_85)] text-lg md:text-xl leading-relaxed mb-8 italic">
+                  「{t.quote}」
+                </p>
+
+                {/* Avatar + Name */}
+                <div className="flex items-center gap-4">
+                  <img
+                    src={t.avatar}
+                    alt={t.name}
+                    className="w-14 h-14 rounded-full object-cover border-2 border-[oklch(0.75_0.12_85/30%)]"
+                  />
+                  <div>
+                    <p className="text-[oklch(0.85_0.04_85)] text-lg font-semibold" style={{ fontFamily: "'Noto Serif TC', serif" }}>
+                      {t.name}
+                    </p>
+                    <p className="text-[oklch(0.5_0.02_85)] text-base">
+                      {t.age} 歲
+                    </p>
+                  </div>
+                  {/* Star Rating */}
+                  <div className="ml-auto flex gap-1">
+                    {Array.from({ length: 5 }).map((_, si) => (
+                      <svg key={si} width="18" height="18" viewBox="0 0 24 24" fill="oklch(0.75 0.12 85)" stroke="none">
+                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                      </svg>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ─── CTA Section ─── */
 function CTASection() {
   return (
@@ -601,6 +726,7 @@ export default function Home() {
       <ShieldSection />
       <UsageSection />
       <VideoSection />
+      <TestimonialsSection />
       <CTASection />
       <Footer />
     </div>
