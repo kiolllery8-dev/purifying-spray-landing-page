@@ -196,9 +196,6 @@ function ProductSection() {
             融合秘魯聖木、杜松、岩蘭草等七大神聖植物精油，
             經由仙佛加持護持，為你在混亂環境中守住氣場。
           </p>
-          <p className="text-center text-3xl md:text-4xl font-bold mb-16" style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.85 0.12 85)" }}>
-            NT$290 <span className="text-xl md:text-2xl font-normal text-[oklch(0.6_0.02_85)]">/  10ML</span>
-          </p>
         </AnimatedSection>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -669,6 +666,10 @@ function CTASection() {
             願守護神時刻看顧您。
             <br />
             讓安定與保護，從此刻開始。
+          </p>
+
+          <p className="text-center text-3xl md:text-4xl font-bold mb-8" style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.85 0.12 85)" }}>
+            售價290元<span className="text-xl md:text-2xl font-normal text-[oklch(0.6_0.02_85)]">&nbsp;/ 10ML</span>
           </p>
 
           <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
