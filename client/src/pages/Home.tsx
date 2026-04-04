@@ -745,135 +745,57 @@ function CTASection() {
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-[oklch(0.75_0.12_85/8%)] blur-[150px]" />
 
-      <div className="container relative z-10 text-center max-w-3xl mx-auto">
+      <div className="container relative z-10 text-center">
         <AnimatedSection>
-          {/* Product Image */}
           <img
             src={CDN.productOriginal}
             alt="淨化噴霧產品"
-            className="w-28 md:w-36 mx-auto mb-10 drop-shadow-[0_0_30px_oklch(0.75_0.12_85/30%)]"
+            className="w-28 md:w-36 mx-auto mb-12 drop-shadow-[0_0_30px_oklch(0.75_0.12_85/30%)]"
           />
-
-          {/* Main Title */}
           <h2
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 gold-glow leading-tight"
             style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.88 0.08 85)" }}
           >
-            仙佛護持・避邪淨化隨身噴霧
+            立即噴上你的
+            <br />
+            第一道結界 →
           </h2>
-
-          {/* Subtitle */}
-          <p className="text-[oklch(0.6_0.02_85)] text-xl md:text-2xl mb-10 tracking-wider">
-            七大神聖精油配方・手工仙佛加持護持
+          <p className="text-[oklch(0.6_0.02_85)] text-xl md:text-2xl max-w-lg mx-auto mb-14 leading-relaxed">
+            願守護神時刻看顧您。
+            <br />
+            讓安定與保護，從此刻開始。
           </p>
 
-          {/* Price */}
-          <div className="flex items-baseline justify-center mb-3">
-            <span className="text-[oklch(0.6_0.02_85)] text-2xl md:text-3xl" style={{ fontFamily: "'Noto Sans TC', sans-serif" }}>NT$</span>
-            <span
-              className="text-7xl md:text-8xl lg:text-9xl font-bold mx-2 gold-glow"
-              style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.85 0.12 85)" }}
-            >
-              290
-            </span>
-            <span className="text-[oklch(0.6_0.02_85)] text-2xl md:text-3xl" style={{ fontFamily: "'Noto Sans TC', sans-serif" }}>/ 10ML</span>
-          </div>
-
-          {/* Limited info */}
-          <p className="text-[oklch(0.5_0.02_85)] text-lg md:text-xl mb-12 tracking-wider">
-            限量手工調配・保存期限開封後6個月
+          <p className="text-center text-3xl md:text-4xl font-bold mb-8" style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.85 0.12 85)" }}>
+            售價290元<span className="text-xl md:text-2xl font-normal text-[oklch(0.6_0.02_85)]">&nbsp;/ 10ML</span>
           </p>
 
-          {/* LINE CTA Box */}
-          <div className="max-w-xl mx-auto mb-10 p-6 rounded-xl border border-[oklch(0.75_0.12_85/15%)] bg-[oklch(0.13_0.01_150/60%)] backdrop-blur-sm">
-            <p className="text-[oklch(0.7_0.02_85)] text-lg md:text-xl mb-5 flex items-center justify-center gap-2">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="#06C755">
-                <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" />
-              </svg>
-              透過 LINE 官方帳號下單訂購，歡迎詢問
-            </p>
-            <motion.a
-              href="https://line.me/R/ti/p/@ssh4900o"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.04, boxShadow: "0 0 30px rgba(6, 199, 85, 0.3)" }}
-              whileTap={{ scale: 0.96 }}
-              transition={{ type: "spring", stiffness: 400, damping: 15 }}
-              className="flex items-center justify-center gap-3 w-full py-4 rounded-full text-white font-semibold text-xl tracking-wider transition-colors duration-300"
-              style={{ background: "#06C755", fontFamily: "'Noto Sans TC', sans-serif" }}
-            >
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
-                <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" />
-              </svg>
-              加入 LINE @ssh4900o 立即詢問
-            </motion.a>
-          </div>
-
-          {/* Three Action Buttons */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto mb-14">
+          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
             <motion.a
               href="https://www.auslife.com.tw/products/f11e2fa5-1e20-42cf-8e0c-3aa8d4f0e07d"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.05, boxShadow: "0 0 30px oklch(0.75 0.12 85 / 40%)" }}
+              whileHover={{ scale: 1.06, boxShadow: "0 0 40px oklch(0.75 0.12 85 / 50%), 0 0 80px oklch(0.75 0.12 85 / 20%)" }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 15 }}
-              className="flex items-center justify-center gap-3 py-4 px-6 bg-[oklch(0.75_0.12_85)] text-[oklch(0.1_0.01_150)] font-semibold tracking-wider text-lg rounded-full transition-colors duration-300 hover:bg-[oklch(0.8_0.12_85)]"
+              className="inline-block px-12 py-5 bg-[oklch(0.75_0.12_85)] text-[oklch(0.1_0.01_150)] font-semibold tracking-wider text-lg rounded-sm transition-colors duration-300 hover:bg-[oklch(0.8_0.12_85)]"
               style={{ fontFamily: "'Noto Sans TC', sans-serif" }}
             >
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="9" cy="21" r="1" />
-                <circle cx="20" cy="21" r="1" />
-                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-              </svg>
-              NT$290 立即購買
+              立 即 購 買
             </motion.a>
             <motion.a
-              href="#"
+              href="https://line.me/R/ti/p/@ssh4900o"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.06, boxShadow: "0 0 30px oklch(0.75 0.12 85 / 25%)" }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 15 }}
-              className="flex items-center justify-center gap-3 py-4 px-6 border border-[oklch(0.75_0.12_85/30%)] text-[oklch(0.8_0.04_85)] font-semibold tracking-wider text-lg rounded-full transition-all duration-300 hover:bg-[oklch(0.75_0.12_85/8%)] hover:border-[oklch(0.75_0.12_85/50%)]"
+              className="inline-block px-12 py-5 border border-[oklch(0.75_0.12_85/40%)] text-[oklch(0.8_0.08_85)] tracking-wider text-lg rounded-sm transition-colors duration-300 hover:bg-[oklch(0.75_0.12_85/10%)] hover:border-[oklch(0.75_0.12_85/70%)]"
               style={{ fontFamily: "'Noto Sans TC', sans-serif" }}
             >
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-              </svg>
-              追蹤 FB 粉絲頁
-            </motion.a>
-            <motion.a
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 400, damping: 15 }}
-              className="flex items-center justify-center gap-3 py-4 px-6 border border-[oklch(0.75_0.12_85/30%)] text-[oklch(0.8_0.04_85)] font-semibold tracking-wider text-lg rounded-full transition-all duration-300 hover:bg-[oklch(0.75_0.12_85/8%)] hover:border-[oklch(0.75_0.12_85/50%)]"
-              style={{ fontFamily: "'Noto Sans TC', sans-serif" }}
-            >
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-              </svg>
-              追蹤 IG
+              LINE 諮 詢
             </motion.a>
           </div>
-
-          {/* Blessing */}
-          <p
-            className="text-2xl md:text-3xl italic mb-6 leading-relaxed"
-            style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.75 0.12 85)" }}
-          >
-            「願守護神時刻看顧您，帶來平安與祝福」
-          </p>
-
-          {/* Contact */}
-          <p className="text-[oklch(0.5_0.02_85)] text-lg tracking-[0.15em]">
-            如 有 任 何 疑 問 ， 歡 迎 與 我 們 聯 繫
-          </p>
         </AnimatedSection>
       </div>
     </div>
@@ -883,10 +805,10 @@ function CTASection() {
 /* ─── Footer ─── */
 function Footer() {
   return (
-    <footer className="border-t border-[oklch(1_0_0/6%)] py-8" style={{ background: "oklch(0.08 0.01 150)" }}>
+    <footer className="border-t border-[oklch(1_0_0/6%)] py-10" style={{ background: "oklch(0.08 0.01 150)" }}>
       <div className="container text-center">
         <p
-          className="text-[oklch(0.75_0.12_85/60%)] text-base tracking-[0.2em] mb-2"
+          className="text-[oklch(0.75_0.12_85/60%)] text-base tracking-[0.2em] mb-3"
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
           Sacred Protection Spray
