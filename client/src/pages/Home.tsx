@@ -802,6 +802,88 @@ function CTASection() {
   );
 }
 
+/* ─── Floating Product Card (Fixed Bottom-Right) ─── */
+function FloatingProductCard() {
+  const [visible, setVisible] = useState(false);
+  const [dismissed, setDismissed] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show after scrolling past hero section (> 400px)
+      if (window.scrollY > 400) {
+        setVisible(true);
+      } else {
+        setVisible(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  if (dismissed || !visible) return null;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 60, scale: 0.9 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: 60, scale: 0.9 }}
+      transition={{ type: "spring", stiffness: 300, damping: 25 }}
+      className="fixed bottom-6 right-6 z-50 flex items-center gap-4 px-5 py-4 rounded-2xl shadow-2xl border border-[oklch(0.75_0.12_85/25%)] backdrop-blur-xl"
+      style={{
+        background: "oklch(0.12 0.015 150 / 92%)",
+        boxShadow: "0 8px 40px oklch(0 0 0 / 40%), 0 0 20px oklch(0.75 0.12 85 / 12%)",
+      }}
+    >
+      {/* Close button */}
+      <button
+        onClick={() => setDismissed(true)}
+        className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-[oklch(0.2_0.01_150)] border border-[oklch(0.75_0.12_85/30%)] flex items-center justify-center text-[oklch(0.6_0.02_85)] hover:text-[oklch(0.85_0.1_85)] hover:bg-[oklch(0.25_0.01_150)] transition-colors"
+        aria-label="關閉"
+      >
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M2 2L10 10M10 2L2 10" />
+        </svg>
+      </button>
+
+      {/* Product Image */}
+      <div className="relative shrink-0">
+        <div className="absolute inset-0 rounded-xl bg-[oklch(0.75_0.12_85/10%)] blur-lg" />
+        <img
+          src={CDN.productOriginal}
+          alt="淨化噴霧"
+          className="relative w-16 h-20 md:w-20 md:h-24 object-contain drop-shadow-[0_0_8px_oklch(0.75_0.12_85/30%)]"
+        />
+      </div>
+
+      {/* Info + Button */}
+      <div className="flex flex-col gap-2">
+        <p
+          className="text-base md:text-lg font-semibold leading-tight"
+          style={{ fontFamily: "'Noto Serif TC', serif", color: "oklch(0.88 0.06 85)" }}
+        >
+          避邪淨化噴霧
+        </p>
+        <p className="text-lg md:text-xl font-bold" style={{ color: "oklch(0.8 0.14 85)" }}>
+          NT$290
+          <span className="text-sm font-normal text-[oklch(0.55_0.02_85)] ml-1">/ 10ML</span>
+        </p>
+        <motion.a
+          href="https://www.auslife.com.tw/products/f11e2fa5-1e20-42cf-8e0c-3aa8d4f0e07d"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.05, boxShadow: "0 0 20px oklch(0.75 0.12 85 / 40%)" }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: "spring", stiffness: 400, damping: 15 }}
+          className="inline-block px-6 py-2.5 bg-[oklch(0.75_0.12_85)] text-[oklch(0.1_0.01_150)] font-semibold tracking-wider text-sm md:text-base rounded-lg text-center transition-colors duration-300 hover:bg-[oklch(0.8_0.12_85)]"
+          style={{ fontFamily: "'Noto Sans TC', sans-serif" }}
+        >
+          立即購買
+        </motion.a>
+      </div>
+    </motion.div>
+  );
+}
+
 /* ─── Footer ─── */
 function Footer() {
   return (
@@ -842,6 +924,7 @@ export default function Home() {
       <TestimonialsSection />
       <CTASection />
       <Footer />
+      <FloatingProductCard />
     </div>
   );
 }
