@@ -781,7 +781,7 @@ function CTASection() {
               className="inline-block px-12 py-5 bg-[oklch(0.75_0.12_85)] text-[oklch(0.1_0.01_150)] font-semibold tracking-wider text-lg rounded-sm transition-colors duration-300 hover:bg-[oklch(0.8_0.12_85)]"
               style={{ fontFamily: "'Noto Sans TC', sans-serif" }}
             >
-              立 即 購 買
+              立 即 購 買<br />兩 入 免 運
             </motion.a>
             <motion.a
               href="https://line.me/R/ti/p/@ssh4900o"
@@ -877,7 +877,7 @@ function FloatingProductCard() {
           className="inline-block px-6 py-2.5 bg-[oklch(0.75_0.12_85)] text-[oklch(0.1_0.01_150)] font-semibold tracking-wider text-sm md:text-base rounded-lg text-center transition-colors duration-300 hover:bg-[oklch(0.8_0.12_85)]"
           style={{ fontFamily: "'Noto Sans TC', sans-serif" }}
         >
-          立即購買
+          立即購買<br />兩入免運
         </motion.a>
       </div>
     </motion.div>
