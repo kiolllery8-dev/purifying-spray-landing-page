@@ -2,7 +2,6 @@ import "dotenv/config";
 import express from "express";
 import { createServer } from "http";
 import net from "net";
-import path from "path";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
 import { registerOAuthRoutes } from "./oauth";
 import { appRouter } from "../routers";
@@ -44,15 +43,6 @@ async function startServer() {
       createContext,
     })
   );
-  // Serve Money Magnet Mist landing page at /2 (static HTML with CDN assets)
-  app.get("/2", (_req, res) => {
-    const moneyMagnetPath =
-      process.env.NODE_ENV === "development"
-        ? path.resolve(import.meta.dirname, "../..", "client", "public", "money-magnet.html")
-        : path.resolve(import.meta.dirname, "public", "money-magnet.html");
-    res.sendFile(moneyMagnetPath);
-  });
-
   // development mode uses Vite, production mode uses static files
   if (process.env.NODE_ENV === "development") {
     await setupVite(app, server);

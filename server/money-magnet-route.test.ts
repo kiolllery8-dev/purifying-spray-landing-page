@@ -1,81 +1,101 @@
-import { describe, expect, it } from "vitest";
+import { describe, it, expect } from "vitest";
 import fs from "fs";
 import path from "path";
 
-describe("Money Magnet Mist /2 route", () => {
-  const moneyMagnetPath = path.resolve(
-    import.meta.dirname,
-    "..",
-    "client",
-    "public",
-    "money-magnet.html"
-  );
+describe("Money Magnet Mist /2 Route Integration", () => {
+  const projectRoot = path.resolve(import.meta.dirname, "..");
 
-  it("money-magnet.html file exists in client/public", () => {
-    expect(fs.existsSync(moneyMagnetPath)).toBe(true);
+  it("MoneyMagnet.tsx React component exists", () => {
+    const componentPath = path.join(projectRoot, "client", "src", "pages", "MoneyMagnet.tsx");
+    expect(fs.existsSync(componentPath)).toBe(true);
   });
 
-  it("money-magnet.html contains the correct page title", () => {
-    const content = fs.readFileSync(moneyMagnetPath, "utf-8");
-    expect(content).toContain("Money Magnet Mist");
-    expect(content).toContain("發財噴霧");
+  it("MoneyMagnet.css scoped styles exist", () => {
+    const cssPath = path.join(projectRoot, "client", "src", "pages", "MoneyMagnet.css");
+    expect(fs.existsSync(cssPath)).toBe(true);
   });
 
-  it("money-magnet.html uses CDN URLs for all images (no local paths)", () => {
-    const content = fs.readFileSync(moneyMagnetPath, "utf-8");
-    // All image src attributes should use CDN URLs
-    const imgSrcMatches = content.match(/src="([^"]+\.(png|jpg|jpeg|webp|gif|svg|mp4))"/gi) || [];
-    expect(imgSrcMatches.length).toBeGreaterThan(0);
-
-    for (const match of imgSrcMatches) {
-      const url = match.replace(/src="/i, "").replace(/"$/, "");
-      // Should be a CDN URL (cloudfront) or a data URI, not a local file path
-      const isCdnOrExternal = url.startsWith("https://") || url.startsWith("http://") || url.startsWith("data:");
-      expect(isCdnOrExternal).toBe(true);
-    }
+  it("MoneyMagnet.tsx is a native React component (not iframe)", () => {
+    const componentPath = path.join(projectRoot, "client", "src", "pages", "MoneyMagnet.tsx");
+    const content = fs.readFileSync(componentPath, "utf-8");
+    // Should NOT contain iframe
+    expect(content).not.toContain("<iframe");
+    // Should contain React JSX structure
+    expect(content).toContain("mm-page");
+    expect(content).toContain("mm-hero");
+    expect(content).toContain("mm-nav");
   });
 
-  it("money-magnet.html contains purchase button with correct price", () => {
-    const content = fs.readFileSync(moneyMagnetPath, "utf-8");
-    expect(content).toContain("388");
-    expect(content).toContain("免運");
-  });
-
-  it("server/_core/index.ts contains /2 route definition", () => {
-    const serverIndexPath = path.resolve(
-      import.meta.dirname,
-      "_core",
-      "index.ts"
-    );
-    const content = fs.readFileSync(serverIndexPath, "utf-8");
-    expect(content).toContain('app.get("/2"');
-    expect(content).toContain("money-magnet.html");
-  });
-
-  it("React App.tsx contains /2 route for MoneyMagnet component", () => {
-    const appTsxPath = path.resolve(
-      import.meta.dirname,
-      "..",
-      "client",
-      "src",
-      "App.tsx"
-    );
-    const content = fs.readFileSync(appTsxPath, "utf-8");
-    expect(content).toContain('"/2"');
+  it("App.tsx has /2 route pointing to MoneyMagnet component", () => {
+    const appPath = path.join(projectRoot, "client", "src", "App.tsx");
+    const content = fs.readFileSync(appPath, "utf-8");
+    expect(content).toContain('path={"/2"}');
     expect(content).toContain("MoneyMagnet");
   });
 
-  it("MoneyMagnet.tsx component exists and uses iframe", () => {
-    const componentPath = path.resolve(
-      import.meta.dirname,
-      "..",
-      "client",
-      "src",
-      "pages",
-      "MoneyMagnet.tsx"
-    );
+  it("MoneyMagnet.tsx uses CDN URLs for all images and videos", () => {
+    const componentPath = path.join(projectRoot, "client", "src", "pages", "MoneyMagnet.tsx");
     const content = fs.readFileSync(componentPath, "utf-8");
-    expect(content).toContain("iframe");
-    expect(content).toContain("/money-magnet.html");
+    // All CDN URLs should use cloudfront
+    const cdnUrls = content.match(/https:\/\/d2xsxph8kpxj0f\.cloudfront\.net[^"'\s]*/g) || [];
+    expect(cdnUrls.length).toBeGreaterThan(10);
+  });
+
+  it("MoneyMagnet.css uses mm- prefix for CSS rule selectors", () => {
+    const cssPath = path.join(projectRoot, "client", "src", "pages", "MoneyMagnet.css");
+    const content = fs.readFileSync(cssPath, "utf-8");
+    // Extract only CSS rule selectors (lines that contain { )
+    const ruleLines = content.split("\n").filter(l => l.includes("{") && !l.trim().startsWith("/*") && !l.trim().startsWith("@"));
+    const selectorClasses: string[] = [];
+    for (const line of ruleLines) {
+      const selectorPart = line.split("{")[0];
+      const matches = selectorPart.match(/\.[a-zA-Z][a-zA-Z0-9_-]*/g) || [];
+      selectorClasses.push(...matches);
+    }
+    const nonMmClasses = selectorClasses.filter(
+      (cls) => !cls.startsWith(".mm-") && cls !== ".scrolled" && cls !== ".small" && cls !== ".big" && cls !== ".drift" && cls !== ".accent"
+    );
+    expect(nonMmClasses.length).toBe(0);
+  });
+
+  it("MoneyMagnet.tsx sets correct document title", () => {
+    const componentPath = path.join(projectRoot, "client", "src", "pages", "MoneyMagnet.tsx");
+    const content = fs.readFileSync(componentPath, "utf-8");
+    expect(content).toContain("發財噴霧 · Money Magnet Mist｜植物能量・財運磁場");
+  });
+
+  it("vite.ts injects OG meta tags for /2 route", () => {
+    const vitePath = path.join(projectRoot, "server", "_core", "vite.ts");
+    const content = fs.readFileSync(vitePath, "utf-8");
+    expect(content).toContain("og:title");
+    expect(content).toContain("發財噴霧 · Money Magnet Mist");
+    expect(content).toContain("og:image");
+    expect(content).toContain("twitter:card");
+  });
+
+  it("MoneyMagnet.tsx includes buy link to auslife.com.tw", () => {
+    const componentPath = path.join(projectRoot, "client", "src", "pages", "MoneyMagnet.tsx");
+    const content = fs.readFileSync(componentPath, "utf-8");
+    expect(content).toContain("auslife.com.tw");
+  });
+
+  it("MoneyMagnet.tsx includes price 388", () => {
+    const componentPath = path.join(projectRoot, "client", "src", "pages", "MoneyMagnet.tsx");
+    const content = fs.readFileSync(componentPath, "utf-8");
+    expect(content).toContain("388");
+  });
+
+  it("Original Home.tsx is not modified", () => {
+    const homePath = path.join(projectRoot, "client", "src", "pages", "Home.tsx");
+    const content = fs.readFileSync(homePath, "utf-8");
+    expect(content).toContain("仙佛護持");
+    expect(content).toContain("避邪淨化");
+  });
+
+  it("server/_core/index.ts does NOT have Express /2 route (uses React routing)", () => {
+    const indexPath = path.join(projectRoot, "server", "_core", "index.ts");
+    const content = fs.readFileSync(indexPath, "utf-8");
+    expect(content).not.toContain('app.get("/2"');
+    expect(content).not.toContain("money-magnet.html");
   });
 });
