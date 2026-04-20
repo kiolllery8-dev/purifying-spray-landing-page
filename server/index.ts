@@ -18,7 +18,12 @@ async function startServer() {
 
   app.use(express.static(staticPath));
 
-  // Handle client-side routing - serve index.html for all routes
+  // Route /2 → Money Magnet Mist landing page (separate static HTML)
+  app.get("/2", (_req, res) => {
+    res.sendFile(path.join(staticPath, "money-magnet.html"));
+  });
+
+  // Handle client-side routing - serve index.html for all other routes
   app.get("*", (_req, res) => {
     res.sendFile(path.join(staticPath, "index.html"));
   });
