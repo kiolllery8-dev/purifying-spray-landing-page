@@ -51,4 +51,31 @@ describe("Money Magnet Mist /2 route", () => {
     expect(content).toContain('app.get("/2"');
     expect(content).toContain("money-magnet.html");
   });
+
+  it("React App.tsx contains /2 route for MoneyMagnet component", () => {
+    const appTsxPath = path.resolve(
+      import.meta.dirname,
+      "..",
+      "client",
+      "src",
+      "App.tsx"
+    );
+    const content = fs.readFileSync(appTsxPath, "utf-8");
+    expect(content).toContain('"/2"');
+    expect(content).toContain("MoneyMagnet");
+  });
+
+  it("MoneyMagnet.tsx component exists and uses iframe", () => {
+    const componentPath = path.resolve(
+      import.meta.dirname,
+      "..",
+      "client",
+      "src",
+      "pages",
+      "MoneyMagnet.tsx"
+    );
+    const content = fs.readFileSync(componentPath, "utf-8");
+    expect(content).toContain("iframe");
+    expect(content).toContain("/money-magnet.html");
+  });
 });
