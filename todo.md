@@ -7,3 +7,4 @@
 - [x] Fix: Switch /2 from Express route to React frontend route (iframe approach) to work with CDN deployment
 - [x] Convert Money Magnet Mist from iframe to native React component
 - [x] Set independent meta/OG embed tags for /2 page (title, description, image)
+- [x] Fix: LINE share embed for /2 shows main page embed instead of Money Magnet Mist embed

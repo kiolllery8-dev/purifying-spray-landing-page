@@ -64,13 +64,32 @@ describe("Money Magnet Mist /2 Route Integration", () => {
     expect(content).toContain("發財噴霧 · Money Magnet Mist｜植物能量・財運磁場");
   });
 
-  it("vite.ts injects OG meta tags for /2 route", () => {
+  it("vite.ts serves dedicated 2.html for /2 route in production", () => {
     const vitePath = path.join(projectRoot, "server", "_core", "vite.ts");
     const content = fs.readFileSync(vitePath, "utf-8");
-    expect(content).toContain("og:title");
+    expect(content).toContain('url === "/2"');
+    expect(content).toContain("2.html");
+  });
+
+  it("client/public/2.html exists with Money Magnet Mist OG meta tags", () => {
+    const htmlPath = path.join(projectRoot, "client", "public", "2.html");
+    expect(fs.existsSync(htmlPath)).toBe(true);
+    const content = fs.readFileSync(htmlPath, "utf-8");
     expect(content).toContain("發財噴霧 · Money Magnet Mist");
-    expect(content).toContain("og:image");
-    expect(content).toContain("twitter:card");
+    expect(content).toContain('og:title');
+    expect(content).toContain('og:image');
+    expect(content).toContain('og:description');
+    expect(content).toContain('twitter:card');
+    expect(content).toContain('product_7e358a87.png');
+    // Should NOT contain main page title
+    expect(content).not.toContain("仙佛護持");
+  });
+
+  it("vite.config.ts includes 2.html as multi-page entry", () => {
+    const viteConfigPath = path.join(projectRoot, "vite.config.ts");
+    const content = fs.readFileSync(viteConfigPath, "utf-8");
+    expect(content).toContain("page2");
+    expect(content).toContain("2.html");
   });
 
   it("MoneyMagnet.tsx includes buy link to auslife.com.tw", () => {
