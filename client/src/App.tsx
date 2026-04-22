@@ -6,7 +6,6 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import MoneyMagnet from "./pages/MoneyMagnet";
-import SiteNav from "./components/SiteNav";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -14,7 +13,6 @@ function Router() {
     <Switch>
       <Route path={"/"} component={Home} />
       <Route path={"/2"} component={MoneyMagnet} />
-      <Route path={"/3"} component={Home} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
@@ -27,7 +25,6 @@ function App() {
       <ThemeProvider defaultTheme="dark">
         <TooltipProvider>
           <Toaster />
-          <SiteNav />
           <Router />
         </TooltipProvider>
       </ThemeProvider>

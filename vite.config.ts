@@ -171,7 +171,6 @@ export default defineConfig({
       input: {
         main: path.resolve(import.meta.dirname, "client", "index.html"),
         page2: path.resolve(import.meta.dirname, "client", "public", "2.html"),
-        page3: path.resolve(import.meta.dirname, "client", "public", "3.html"),
       },
     },
   },
