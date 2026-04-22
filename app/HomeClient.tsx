@@ -902,6 +902,18 @@ function Footer() {
         <p className="text-[oklch(0.45_0.01_85)] text-base">
           © 2026 仙佛護持・避邪淨化隨身噴霧. All rights reserved.
         </p>
+        <p className="mt-4 text-[oklch(0.5_0.01_85)] text-sm">
+          網頁設計 by{" "}
+          <a
+            href="https://show.intelliverse.tw/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[oklch(0.75_0.12_85/80%)] hover:text-[oklch(0.85_0.12_85)] underline-offset-4 hover:underline transition-colors"
+          >
+            靈境智造 Intelliverse
+          </a>{" "}
+          · 讓 AI 幫你賺錢
+        </p>
       </div>
     </footer>
   );

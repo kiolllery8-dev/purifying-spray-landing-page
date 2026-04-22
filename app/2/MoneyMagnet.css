@@ -756,6 +756,9 @@
 }
 .mm-footer-sub{color:var(--mm-cream-dim);font-size:17px;letter-spacing:.25em;margin-bottom:24px;}
 .mm-footer-meta{color:var(--mm-muted);font-size:15px;letter-spacing:.1em;}
+.mm-footer-credit{color:var(--mm-muted);font-size:13px;letter-spacing:.08em;margin-top:14px;}
+.mm-footer-credit a{color:var(--mm-gold);text-decoration:none;transition:opacity .2s;}
+.mm-footer-credit a:hover{opacity:.8;text-decoration:underline;text-underline-offset:3px;}
 
 /* Image slots */
 .mm-img-slot{

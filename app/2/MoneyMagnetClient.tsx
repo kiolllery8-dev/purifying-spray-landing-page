@@ -679,6 +679,13 @@ export default function MoneyMagnet() {
         <div className="mm-footer-brand">Money Magnet Mist</div>
         <p className="mm-footer-sub">發 財 噴 霧 · 植 物 能 量 密 法</p>
         <p className="mm-footer-meta">&copy; 2026 Money Magnet Mist · All Rights Reserved</p>
+        <p className="mm-footer-credit">
+          網頁設計 by{" "}
+          <a href="https://show.intelliverse.tw/" target="_blank" rel="noopener noreferrer">
+            靈境智造 Intelliverse
+          </a>{" "}
+          · 讓 AI 幫你賺錢
+        </p>
       </footer>
     </div>
   );

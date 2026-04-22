@@ -1051,6 +1051,18 @@ function Footer() {
         <p className="text-foreground/30 text-xs">
           &copy; {new Date().getFullYear()} AUS LIFE. All rights reserved.
         </p>
+        <p className="mt-3 text-foreground/40 text-xs">
+          網頁設計 by{" "}
+          <a
+            href="https://show.intelliverse.tw/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gold/70 hover:text-gold underline-offset-4 hover:underline transition-colors"
+          >
+            靈境智造 Intelliverse
+          </a>{" "}
+          · 讓 AI 幫你賺錢
+        </p>
       </div>
     </footer>
   );
