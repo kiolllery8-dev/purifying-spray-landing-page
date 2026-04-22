@@ -16,3 +16,6 @@
 - [x] Integrate video and image assets with CDN
 - [x] Responsive design and animation effects
 - [x] Deploy new landing page to replace current Home.tsx
+- [x] Add collapsible FAQ section at the bottom of the real-person testimonial landing page
+- [x] FAQ content covers common questions about the purifying spray product
+- [x] FAQ accordion animation and responsive design

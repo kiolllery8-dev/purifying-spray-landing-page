@@ -8,6 +8,12 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from "framer-motion";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 
 /* ─── CDN Assets ─── */
 const CDN = {
@@ -947,6 +953,88 @@ function CTASection() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   FAQ SECTION
+   ═══════════════════════════════════════════════════════════════ */
+const FAQ_DATA = [
+  {
+    q: "這瓶噴霧的成分是什麼？安全嗎？",
+    a: "本產品嚴選七大神聖植物精華——秘魯聖木、杜松、岩蘭草、白鼠尾草、大西洋雪松、乳香、沒藥，以天然植物萃取製成，不含化學香精、酒精或防腐劑。通過 SGS 安全檢測，孕婦及兒童亦可安心使用。",
+  },
+  {
+    q: "噴霧的效果是心理作用嗎？",
+    a: "七大神聖植物在世界各地的傳統文化中已有數千年的淨化使用歷史。秘魯聖木被南美洲原住民用於驅邪淨化，白鼠尾草是北美原住民的神聖草藥，乳香與沒藥更是聖經中記載的神聖樹脂。超過 3,000 位使用者的真實回饋證實，這些天然植物的香氣確實能帶來心靈上的安定與舒適感。",
+  },
+  {
+    q: "什麼時候適合使用？",
+    a: "任何你覺得需要淨化或保護的時刻都適合使用：去醫院探病前後、參加告別式前後、進入陌生空間時、去宮廟拜拜回來後、面試或重要會議前、睡前淨化臥室、感覺身體沉重不舒服時。小巧瓶身放在包包裡，隨時隨地都能使用。",
+  },
+  {
+    q: "一瓶可以用多久？",
+    a: "每瓶容量為 30ml，以每次噴 2-3 下的使用量計算，日常使用約可持續 1-2 個月。建議開封後 6 個月內使用完畢，以確保植物精華的最佳效果。",
+  },
+  {
+    q: "可以噴在身上嗎？會不會弄髒衣服？",
+    a: "可以的！噴霧為細緻水霧狀，可直接噴灑於頭頂、肩膀、胸口等部位，也可噴灑在空間中。配方為透明無色，不會弄髒衣物或留下痕跡。天然植物香氣清雅，不會過於濃烈。",
+  },
+  {
+    q: "跟市面上的其他淨化噴霧有什麼不同？",
+    a: "本產品有三大獨特之處：第一，嚴選七大跨文化神聖植物，涵蓋南美洲、北美洲、歐洲、中東等地的千年淨化智慧；第二，每一批次皆經由仙佛護持加持，注入神聖能量；第三，100% 天然植物萃取，無化學添加，溫和不刺鼻。",
+  },
+  {
+    q: "如何購買？有什麼優惠？",
+    a: "您可以透過本頁面的「立即購買」按鈕前往官方商城選購，單瓶售價 NT$880。目前購買 2 瓶即享免運優惠，也可以透過 LINE 官方帳號諮詢客服了解更多組合方案。",
+  },
+  {
+    q: "有提供退換貨服務嗎？",
+    a: "我們提供 7 天鑑賞期退換貨服務。若商品未拆封使用，可於收到商品後 7 天內申請退換貨。如有任何問題，歡迎透過 LINE 官方帳號聯繫我們的客服團隊，我們將竭誠為您服務。",
+  },
+];
+
+function FAQSection() {
+  return (
+    <AnimatedSection className="py-24 md:py-32">
+      <div className="container max-w-4xl mx-auto px-4">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <motion.span
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="inline-block text-gold/70 text-lg tracking-[0.3em] uppercase mb-4"
+          >
+            FAQ
+          </motion.span>
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-6">
+            常見問題
+          </h2>
+          <p className="text-foreground/60 text-lg md:text-xl max-w-2xl mx-auto">
+            關於避邪淨化噴霧，你想知道的都在這裡
+          </p>
+        </div>
+
+        {/* Accordion */}
+        <Accordion type="single" collapsible className="w-full space-y-3">
+          {FAQ_DATA.map((item, i) => (
+            <AccordionItem
+              key={i}
+              value={`faq-${i}`}
+              className="border border-gold/15 rounded-2xl px-6 md:px-8 bg-white/[0.02] backdrop-blur-sm hover:border-gold/30 transition-colors duration-300"
+            >
+              <AccordionTrigger className="text-lg md:text-xl font-medium text-foreground/90 hover:text-gold hover:no-underline py-6 [&>svg]:text-gold/60 [&>svg]:w-5 [&>svg]:h-5">
+                {item.q}
+              </AccordionTrigger>
+              <AccordionContent className="text-foreground/60 text-base md:text-lg leading-relaxed pb-6">
+                {item.a}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </div>
+    </AnimatedSection>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
    FOOTER
    ═══════════════════════════════════════════════════════════════ */
 function Footer() {
@@ -1029,6 +1117,7 @@ export default function Home() {
       <StatsSection />
       <ProductSection />
       <CTASection />
+      <FAQSection />
       <Footer />
       <FloatingCTA />
     </div>
