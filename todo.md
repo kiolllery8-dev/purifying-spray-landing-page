@@ -8,3 +8,11 @@
 - [x] Convert Money Magnet Mist from iframe to native React component
 - [x] Set independent meta/OG embed tags for /2 page (title, description, image)
 - [x] Fix: LINE share embed for /2 shows main page embed instead of Money Magnet Mist embed
+- [x] Design new Landing Page with real-person testimonial style for 仙佛護持避邪淨化噴霧
+- [x] AI generate testimonial person photos (Asian women 25-65 years old)
+- [x] AI generate usage scenario images (temple, office, home, before sleep)
+- [x] AI generate short video clips (real person using spray)
+- [x] Build new React Landing Page component with testimonial sections
+- [x] Integrate video and image assets with CDN
+- [x] Responsive design and animation effects
+- [x] Deploy new landing page to replace current Home.tsx
