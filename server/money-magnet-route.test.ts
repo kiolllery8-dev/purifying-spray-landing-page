@@ -118,3 +118,47 @@ describe("Money Magnet Mist /2 Route Integration", () => {
     expect(content).not.toContain("money-magnet.html");
   });
 });
+
+describe("Real Person Testimonial /3 Route Integration", () => {
+  const projectRoot = path.resolve(import.meta.dirname, "..");
+
+  it("App.tsx has /3 route pointing to Home component", () => {
+    const appPath = path.join(projectRoot, "client", "src", "App.tsx");
+    const content = fs.readFileSync(appPath, "utf-8");
+    expect(content).toContain('path={"/3"}');
+    expect(content).toContain("Home");
+  });
+
+  it("client/public/3.html exists with real person testimonial OG meta tags", () => {
+    const htmlPath = path.join(projectRoot, "client", "public", "3.html");
+    expect(fs.existsSync(htmlPath)).toBe(true);
+    const content = fs.readFileSync(htmlPath, "utf-8");
+    expect(content).toContain("真人實測");
+    expect(content).toContain("3000");
+    expect(content).toContain('og:title');
+    expect(content).toContain('og:image');
+    expect(content).toContain('og:description');
+    expect(content).toContain('twitter:card');
+    expect(content).toContain('auslife.store/3');
+  });
+
+  it("vite.config.ts includes 3.html as multi-page entry", () => {
+    const viteConfigPath = path.join(projectRoot, "vite.config.ts");
+    const content = fs.readFileSync(viteConfigPath, "utf-8");
+    expect(content).toContain("page3");
+    expect(content).toContain("3.html");
+  });
+
+  it("vite.ts serves dedicated 3.html for /3 route in production", () => {
+    const vitePath = path.join(projectRoot, "server", "_core", "vite.ts");
+    const content = fs.readFileSync(vitePath, "utf-8");
+    expect(content).toContain('url === "/3"');
+    expect(content).toContain("3.html");
+  });
+
+  it("vite.ts injects /3 meta tags in dev mode", () => {
+    const vitePath = path.join(projectRoot, "server", "_core", "vite.ts");
+    const content = fs.readFileSync(vitePath, "utf-8");
+    expect(content).toContain("真人實測・3000+人見證");
+  });
+});

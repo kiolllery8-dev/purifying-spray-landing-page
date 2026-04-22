@@ -16,3 +16,7 @@
 - [x] Integrate video and image assets with CDN
 - [x] Responsive design and animation effects
 - [x] Deploy new landing page to replace current Home.tsx
+- [x] Add /3 route pointing to the same real-person testimonial Landing Page as homepage
+- [x] Create 3.html with independent OG embed tags for /3
+- [x] Add /3 to vite.config.ts multi-page build
+- [x] Add /3 to server-side serveStatic for production
