@@ -199,20 +199,7 @@ export default function MoneyMagnet() {
       <div className="mm-coins-layer" ref={coinsRef} />
       <div className="mm-burst-layer" ref={burstLayerRef} />
 
-      {/* NAV */}
-      <nav className="mm-nav" ref={navRef}>
-        <div className="mm-nav-brand">
-          Money Magnet Mist
-          <small>發 財 噴 霧</small>
-        </div>
-        <a href="#mmCtaVerse" className="mm-nav-buy" onClick={handleNavBuyClick} aria-label="購買發財噴霧">
-          <span className="mm-nav-coin" aria-hidden="true" />
-          <span className="mm-nav-buy-text">
-            <span className="mm-nb-line1">購買</span>
-            <span className="mm-nb-line2">388 / 1入 · 2入免運</span>
-          </span>
-        </a>
-      </nav>
+      {/* NAV — hidden, using shared SiteNav from App.tsx */}
 
       {/* HERO */}
       <section className="mm-hero">

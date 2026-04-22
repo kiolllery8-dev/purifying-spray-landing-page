@@ -23,7 +23,8 @@ describe("Money Magnet Mist /2 Route Integration", () => {
     // Should contain React JSX structure
     expect(content).toContain("mm-page");
     expect(content).toContain("mm-hero");
-    expect(content).toContain("mm-nav");
+    // mm-nav removed, now using shared SiteNav from App.tsx
+    expect(content).not.toContain("mm-nav");
   });
 
   it("App.tsx has /2 route pointing to MoneyMagnet component", () => {
