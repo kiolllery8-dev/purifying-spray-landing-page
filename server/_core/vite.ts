@@ -62,6 +62,28 @@ export async function setupVite(app: Express, server: Server) {
         template = template.replace("</head>", `${ogTags}\n  </head>`);
       }
 
+      // Inject route-specific meta tags for /3 (真人實測版)
+      if (url === "/3" || url.startsWith("/3?") || url.startsWith("/3#")) {
+        template = template.replace(
+          "<title>仙佛護持・避邪淨化隨身噴霧｜啟動你的第一道結界</title>",
+          "<title>仙佛護持・避邪淨化隨身噴霧｜真人實測・3000人見證</title>"
+        );
+        template = template.replace(
+          '<meta name="description" content="七大神聖精油配方・仙佛加持護持。一噴，像替自己升起一道防護罩。守住氣場・隔離外界干擾・隨時安心。" />',
+          '<meta name="description" content="超過3,000人親身體驗，七大神聖植物精萃，仙佛護持加持。一噴淨化，啟動你的第一道結界。真人實測回饋分享。" />'
+        );
+        const ogTags = `
+    <meta property="og:title" content="仙佛護持・避邪淨化隨身噴霧｜真人實測・3000人見證" />
+    <meta property="og:description" content="超過3,000人親身體驗，七大神聖植物精萃，仙佛護持加持。一噴淨化，啟動你的第一道結界。" />
+    <meta property="og:image" content="https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/hero_woman_spray_18fd9677.png" />
+    <meta property="og:type" content="product" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="仙佛護持・避邪淨化隨身噴霧｜真人實測・3000人見證" />
+    <meta name="twitter:description" content="超過3,000人親身體驗，七大神聖植物精萃，仙佛護持加持。一噴淨化，啟動你的第一道結界。" />
+    <meta name="twitter:image" content="https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/hero_woman_spray_18fd9677.png" />`;
+        template = template.replace("</head>", `${ogTags}\n  </head>`);
+      }
+
       const page = await vite.transformIndexHtml(url, template);
       res.status(200).set({ "Content-Type": "text/html" }).end(page);
     } catch (e) {
@@ -94,6 +116,15 @@ export function serveStatic(app: Express) {
       const page2Path = path.resolve(distPath, "public", "2.html");
       if (fs.existsSync(page2Path)) {
         res.status(200).set({ "Content-Type": "text/html" }).send(fs.readFileSync(page2Path, "utf-8"));
+        return;
+      }
+    }
+
+    // Serve dedicated 3.html for /3 route (真人實測版) with correct OG meta tags
+    if (url === "/3" || url.startsWith("/3?") || url.startsWith("/3#")) {
+      const page3Path = path.resolve(distPath, "public", "3.html");
+      if (fs.existsSync(page3Path)) {
+        res.status(200).set({ "Content-Type": "text/html" }).send(fs.readFileSync(page3Path, "utf-8"));
         return;
       }
     }

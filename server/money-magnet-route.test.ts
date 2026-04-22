@@ -18,9 +18,7 @@ describe("Money Magnet Mist /2 Route Integration", () => {
   it("MoneyMagnet.tsx is a native React component (not iframe)", () => {
     const componentPath = path.join(projectRoot, "client", "src", "pages", "MoneyMagnet.tsx");
     const content = fs.readFileSync(componentPath, "utf-8");
-    // Should NOT contain iframe
     expect(content).not.toContain("<iframe");
-    // Should contain React JSX structure
     expect(content).toContain("mm-page");
     expect(content).toContain("mm-hero");
     expect(content).toContain("mm-nav");
@@ -36,7 +34,6 @@ describe("Money Magnet Mist /2 Route Integration", () => {
   it("MoneyMagnet.tsx uses CDN URLs for all images and videos", () => {
     const componentPath = path.join(projectRoot, "client", "src", "pages", "MoneyMagnet.tsx");
     const content = fs.readFileSync(componentPath, "utf-8");
-    // All CDN URLs should use cloudfront
     const cdnUrls = content.match(/https:\/\/d2xsxph8kpxj0f\.cloudfront\.net[^"'\s]*/g) || [];
     expect(cdnUrls.length).toBeGreaterThan(10);
   });
@@ -44,7 +41,6 @@ describe("Money Magnet Mist /2 Route Integration", () => {
   it("MoneyMagnet.css uses mm- prefix for CSS rule selectors", () => {
     const cssPath = path.join(projectRoot, "client", "src", "pages", "MoneyMagnet.css");
     const content = fs.readFileSync(cssPath, "utf-8");
-    // Extract only CSS rule selectors (lines that contain { )
     const ruleLines = content.split("\n").filter(l => l.includes("{") && !l.trim().startsWith("/*") && !l.trim().startsWith("@"));
     const selectorClasses: string[] = [];
     for (const line of ruleLines) {
@@ -81,7 +77,6 @@ describe("Money Magnet Mist /2 Route Integration", () => {
     expect(content).toContain('og:description');
     expect(content).toContain('twitter:card');
     expect(content).toContain('product_7e358a87.png');
-    // Should NOT contain main page title
     expect(content).not.toContain("仙佛護持");
   });
 
@@ -104,11 +99,14 @@ describe("Money Magnet Mist /2 Route Integration", () => {
     expect(content).toContain("388");
   });
 
-  it("Original Home.tsx is not modified", () => {
+  it("Home.tsx is the original brand-image version at /", () => {
     const homePath = path.join(projectRoot, "client", "src", "pages", "Home.tsx");
     const content = fs.readFileSync(homePath, "utf-8");
     expect(content).toContain("仙佛護持");
     expect(content).toContain("避邪淨化");
+    // Original version should NOT have real-person testimonial elements
+    expect(content).not.toContain("3,000+ 人親身體驗");
+    expect(content).not.toContain("FAQSection");
   });
 
   it("server/_core/index.ts does NOT have Express /2 route (uses React routing)", () => {
@@ -116,5 +114,79 @@ describe("Money Magnet Mist /2 Route Integration", () => {
     const content = fs.readFileSync(indexPath, "utf-8");
     expect(content).not.toContain('app.get("/2"');
     expect(content).not.toContain("money-magnet.html");
+  });
+});
+
+describe("Testimonial /3 Route Integration", () => {
+  const projectRoot = path.resolve(import.meta.dirname, "..");
+
+  it("Testimonial.tsx React component exists", () => {
+    const componentPath = path.join(projectRoot, "client", "src", "pages", "Testimonial.tsx");
+    expect(fs.existsSync(componentPath)).toBe(true);
+  });
+
+  it("Testimonial.tsx is the real-person testimonial version", () => {
+    const componentPath = path.join(projectRoot, "client", "src", "pages", "Testimonial.tsx");
+    const content = fs.readFileSync(componentPath, "utf-8");
+    expect(content).toContain("真人實測版");
+    expect(content).toContain("FAQSection");
+    expect(content).toContain("TestimonialsSection");
+    expect(content).toContain("PainPointsSection");
+  });
+
+  it("App.tsx has /3 route pointing to Testimonial component", () => {
+    const appPath = path.join(projectRoot, "client", "src", "App.tsx");
+    const content = fs.readFileSync(appPath, "utf-8");
+    expect(content).toContain('path={"/3"}');
+    expect(content).toContain("Testimonial");
+  });
+
+  it("client/public/3.html exists with 真人實測版 OG meta tags", () => {
+    const htmlPath = path.join(projectRoot, "client", "public", "3.html");
+    expect(fs.existsSync(htmlPath)).toBe(true);
+    const content = fs.readFileSync(htmlPath, "utf-8");
+    expect(content).toContain("真人實測");
+    expect(content).toContain("3000人見證");
+    expect(content).toContain('og:title');
+    expect(content).toContain('og:image');
+    expect(content).toContain('og:description');
+    expect(content).toContain('twitter:card');
+    expect(content).toContain('hero_woman_spray_18fd9677.png');
+  });
+
+  it("vite.config.ts includes 3.html as multi-page entry", () => {
+    const viteConfigPath = path.join(projectRoot, "vite.config.ts");
+    const content = fs.readFileSync(viteConfigPath, "utf-8");
+    expect(content).toContain("page3");
+    expect(content).toContain("3.html");
+  });
+
+  it("vite.ts serves dedicated 3.html for /3 route in production", () => {
+    const vitePath = path.join(projectRoot, "server", "_core", "vite.ts");
+    const content = fs.readFileSync(vitePath, "utf-8");
+    expect(content).toContain('url === "/3"');
+    expect(content).toContain("3.html");
+  });
+
+  it("vite.ts injects OG meta tags for /3 route in dev mode", () => {
+    const vitePath = path.join(projectRoot, "server", "_core", "vite.ts");
+    const content = fs.readFileSync(vitePath, "utf-8");
+    expect(content).toContain("真人實測・3000人見證");
+    expect(content).toContain("hero_woman_spray_18fd9677.png");
+  });
+
+  it("Testimonial.tsx uses CDN URLs for images", () => {
+    const componentPath = path.join(projectRoot, "client", "src", "pages", "Testimonial.tsx");
+    const content = fs.readFileSync(componentPath, "utf-8");
+    const cdnUrls = content.match(/https:\/\/d2xsxph8kpxj0f\.cloudfront\.net[^"'\s]*/g) || [];
+    expect(cdnUrls.length).toBeGreaterThan(10);
+  });
+
+  it("App.tsx has all three routes: /, /2, /3", () => {
+    const appPath = path.join(projectRoot, "client", "src", "App.tsx");
+    const content = fs.readFileSync(appPath, "utf-8");
+    expect(content).toContain('path={"/"}');
+    expect(content).toContain('path={"/2"}');
+    expect(content).toContain('path={"/3"}');
   });
 });

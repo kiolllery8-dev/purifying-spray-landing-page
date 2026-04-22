@@ -19,3 +19,11 @@
 - [x] Add collapsible FAQ section at the bottom of the real-person testimonial landing page
 - [x] FAQ content covers common questions about the purifying spray product
 - [x] FAQ accordion animation and responsive design
+- [x] Move current Home.tsx (真人實測版) to /3 route
+- [x] Create 3.html with OG meta tags for /3 route
+- [x] Restore original brand-image landing page to / (index) route
+- [x] Update App.tsx router for new route structure (/ = original, /2 = MoneyMagnet, /3 = 真人實測版)
+- [x] Update vite.config.ts multi-page build to include 3.html
+- [x] Update server vite.ts to handle /3 route OG meta injection and serveStatic
+- [x] Update index.html OG meta tags back to original brand version
+- [x] Update tests for new route structure
