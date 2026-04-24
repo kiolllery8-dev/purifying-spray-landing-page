@@ -150,6 +150,11 @@ const painPoints = [
     title: "夜晚翻來覆去，就是睡不著？",
     desc: "白天累積的雜念和不安，到了夜晚全部湧上來。",
   },
+  {
+    image: "/pain_baby.png",
+    title: "小朋友半夜驚醒哭鬧，怎麼哄都安撫不了？",
+    desc: "幼童對能量特別敏感，說不出的不安讓整夜哭鬧，全家徹夜難眠。",
+  },
 ];
 
 /* ─── Sacred Plants Data ─── */
@@ -395,7 +400,7 @@ function PainPointsSection() {
           生活中總有些說不出的沉重，讓你覺得不太對勁...
         </p>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {painPoints.map((point, i) => (
             <motion.div
               key={i}
