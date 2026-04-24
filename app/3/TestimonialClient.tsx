@@ -54,8 +54,16 @@ const CDN = {
   avatar07: "https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/avatar_07_huangguodong-MznhwQ6y4gXEhMjd4ZeW3C.webp",
 };
 
-const BUY_URL = "https://www.auslife.com.tw/products/仙佛護持-避邪淨化隨身噴霧";
-const LINE_URL = "https://lin.ee/1VlMFMj";
+const BUY_URL_SINGLE = "https://www.auslife.com.tw/products/f11e2fa5-1e20-42cf-8e0c-3aa8d4f0e07d";
+const BUY_URL_SIX = "https://www.auslife.com.tw/products/847a310e-b868-4212-8000-3d53c20fec66";
+const LINE_URL = "https://line.me/R/ti/p/@auslife";
+
+const BUNDLES = [
+  { qty: 1, price: 290, original: 1280, ship: "含運費", url: BUY_URL_SINGLE, tag: "" },
+  { qty: 2, price: 580, original: 2560, ship: "免運", url: BUY_URL_SINGLE, tag: "" },
+  { qty: 3, price: 699, original: 3840, ship: "免運", url: BUY_URL_SINGLE, tag: "熱門" },
+  { qty: 6, price: 1200, original: 7680, ship: "免運", url: BUY_URL_SIX, tag: "最超值" },
+];
 
 /* ─── Testimonials Data ─── */
 const testimonials = [
@@ -346,12 +354,10 @@ function HeroSection() {
             看看她們怎麼說 ↓
           </a>
           <a
-            href={BUY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#cta"
             className="px-8 py-4 bg-gold text-black rounded-full text-lg font-bold hover:bg-gold-light transition-all duration-300 shadow-lg shadow-gold/20"
           >
-            立即體驗守護
+            立即體驗守護 ↓
           </a>
         </motion.div>
       </motion.div>
@@ -878,13 +884,13 @@ function ProductSection() {
    ═══════════════════════════════════════════════════════════════ */
 function CTASection() {
   return (
-    <AnimatedSection className="py-20 md:py-28 relative overflow-hidden">
+    <AnimatedSection id="cta" className="py-20 md:py-28 relative overflow-hidden scroll-mt-8">
       {/* Glow background */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="w-[600px] h-[600px] bg-gold/10 rounded-full blur-[120px]" />
       </div>
 
-      <div className="container max-w-3xl mx-auto px-4 relative z-10 text-center">
+      <div className="container max-w-4xl mx-auto px-4 relative z-10 text-center">
         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-foreground mb-6">
           準備好啟動你的<span className="text-gold gold-glow">防護結界</span>了嗎？
         </h2>
@@ -892,40 +898,68 @@ function CTASection() {
           加入超過 3,000 位使用者的行列，讓七大神聖植物守護你的每一天。
         </p>
 
-        {/* Price */}
-        <div className="mb-10">
-          <div className="inline-flex items-baseline gap-2">
-            <span className="font-display text-5xl md:text-6xl text-gold gold-glow font-bold">
-              NT$880
-            </span>
-            <span className="text-foreground/40 text-lg line-through">NT$1,280</span>
-          </div>
-          <p className="text-foreground/50 mt-2 text-base">限時優惠・含運費</p>
+        {/* Bundle options */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 mb-10 max-w-3xl mx-auto">
+          {BUNDLES.map((b) => {
+            const perUnit = Math.round(b.price / b.qty);
+            const isHighlight = b.tag === "最超值";
+            return (
+              <a
+                key={b.qty}
+                href={b.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`group relative flex items-center justify-between gap-4 p-5 md:p-6 rounded-2xl border transition-all duration-300 ${
+                  isHighlight
+                    ? "border-gold bg-gold/10 hover:bg-gold/20 shadow-lg shadow-gold/20"
+                    : "border-gold/30 bg-background/40 hover:border-gold/60 hover:bg-gold/5"
+                }`}
+              >
+                {b.tag && (
+                  <span className="absolute -top-3 left-6 px-3 py-1 bg-gold text-black text-xs font-bold rounded-full shadow">
+                    {b.tag}
+                  </span>
+                )}
+                <div className="text-left">
+                  <div className="flex items-baseline gap-2 mb-1">
+                    <span className="text-2xl md:text-3xl font-bold text-gold font-display">
+                      {b.qty} 入
+                    </span>
+                    <span className="text-foreground/40 text-sm">單入 NT${perUnit}</span>
+                  </div>
+                  <div className="flex items-baseline gap-2">
+                    <span className="font-display text-3xl md:text-4xl text-foreground font-bold">
+                      NT${b.price.toLocaleString()}
+                    </span>
+                    <span className="text-foreground/40 text-sm line-through">
+                      NT${b.original.toLocaleString()}
+                    </span>
+                  </div>
+                  <p className="text-foreground/60 text-sm mt-1">{b.ship}</p>
+                </div>
+                <div className="shrink-0 flex items-center gap-1 text-gold font-bold">
+                  <span className="hidden md:inline">選購</span>
+                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            );
+          })}
         </div>
 
-        {/* Buttons */}
+        {/* LINE consult */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href={BUY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-gold text-black rounded-full text-xl font-bold hover:bg-gold-light transition-all duration-300 shadow-lg shadow-gold/30 hover:shadow-gold/50"
-          >
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
-            </svg>
-            立即購買
-          </a>
           <a
             href={LINE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-[#06C755] text-white rounded-full text-xl font-bold hover:bg-[#05b04c] transition-all duration-300 shadow-lg"
+            className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-[#06C755] text-white rounded-full text-lg font-bold hover:bg-[#05b04c] transition-all duration-300 shadow-lg"
           >
             <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
               <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" />
             </svg>
-            LINE 諮詢
+            LINE 諮詢（@auslife）
           </a>
         </div>
 
@@ -985,7 +1019,7 @@ const FAQ_DATA = [
   },
   {
     q: "如何購買？有什麼優惠？",
-    a: "您可以透過本頁面的「立即購買」按鈕前往官方商城選購，單瓶售價 NT$880。目前購買 2 瓶即享免運優惠，也可以透過 LINE 官方帳號諮詢客服了解更多組合方案。",
+    a: "您可以透過本頁面下方的選購按鈕前往官方商城選購，提供四種超值組合：1 入 NT$290（含運費）、2 入 NT$580（免運）、3 入 NT$699（免運）、6 入 NT$1,200（免運，單入最低 NT$200）。也可以透過 LINE 官方帳號（@auslife）諮詢客服了解更多組合方案。",
   },
   {
     q: "有提供退換貨服務嗎？",
@@ -1094,12 +1128,10 @@ function FloatingCTA() {
         >
           <div className="flex gap-3">
             <a
-              href={BUY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#cta"
               className="flex-1 py-3.5 bg-gold text-black rounded-full text-center text-lg font-bold"
             >
-              立即購買 NT$880
+              立即選購 NT$290 起
             </a>
             <a
               href={LINE_URL}
