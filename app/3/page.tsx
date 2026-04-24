@@ -99,7 +99,7 @@ const productJsonLd = {
     offers: [
       {
         "@type": "Offer",
-        name: "1 入組（含運費）",
+        name: "1 入組（不含運費）",
         url: "https://www.auslife.com.tw/products/f11e2fa5-1e20-42cf-8e0c-3aa8d4f0e07d",
         priceCurrency: "TWD",
         price: "290",
@@ -217,7 +217,7 @@ const faqJsonLd = {
       acceptedAnswer: {
         "@type": "Answer",
         text:
-          "您可以透過本頁面下方的選購按鈕前往官方商城選購，提供四種超值組合：1 入 NT$290（含運費）、2 入 NT$580（免運）、3 入 NT$699（免運）、6 入 NT$1,200（免運，單入最低 NT$200）。也可以透過 LINE 官方帳號（@auslife）諮詢客服了解更多組合方案。",
+          "您可以透過本頁面下方的選購按鈕前往官方商城選購，提供四種超值組合：1 入 NT$290（不含運費）、2 入 NT$580（免運）、3 入 NT$699（免運）、6 入 NT$1,200（免運，單入最低 NT$200）。也可以透過 LINE 官方帳號（@auslife）諮詢客服了解更多組合方案。",
       },
     },
     {

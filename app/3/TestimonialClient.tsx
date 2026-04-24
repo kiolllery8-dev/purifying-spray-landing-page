@@ -59,7 +59,7 @@ const BUY_URL_SIX = "https://www.auslife.com.tw/products/847a310e-b868-4212-8000
 const LINE_URL = "https://line.me/R/ti/p/@auslife";
 
 const BUNDLES = [
-  { qty: 1, price: 290, original: 1280, ship: "含運費", url: BUY_URL_SINGLE, tag: "" },
+  { qty: 1, price: 290, original: 1280, ship: "不含運費", url: BUY_URL_SINGLE, tag: "" },
   { qty: 2, price: 580, original: 2560, ship: "免運", url: BUY_URL_SINGLE, tag: "" },
   { qty: 3, price: 699, original: 3840, ship: "免運", url: BUY_URL_SINGLE, tag: "熱門" },
   { qty: 6, price: 1200, original: 7680, ship: "免運", url: BUY_URL_SIX, tag: "最超值" },
@@ -981,7 +981,7 @@ function CTASection() {
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
             </svg>
-            天然成分
+            天然能量
           </span>
         </div>
       </div>
@@ -1019,7 +1019,7 @@ const FAQ_DATA = [
   },
   {
     q: "如何購買？有什麼優惠？",
-    a: "您可以透過本頁面下方的選購按鈕前往官方商城選購，提供四種超值組合：1 入 NT$290（含運費）、2 入 NT$580（免運）、3 入 NT$699（免運）、6 入 NT$1,200（免運，單入最低 NT$200）。也可以透過 LINE 官方帳號（@auslife）諮詢客服了解更多組合方案。",
+    a: "您可以透過本頁面下方的選購按鈕前往官方商城選購，提供四種超值組合：1 入 NT$290（不含運費）、2 入 NT$580（免運）、3 入 NT$699（免運）、6 入 NT$1,200（免運，單入最低 NT$200）。也可以透過 LINE 官方帳號（@auslife）諮詢客服了解更多組合方案。",
   },
   {
     q: "有提供退換貨服務嗎？",
