@@ -1,21 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://auslife.store/</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://auslife.store/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auslife.store/" />
+    <image:image>
+      <image:loc>https://auslife.store/og-image.png</image:loc>
+      <image:title>仙佛護持・避邪淨化隨身噴霧</image:title>
+      <image:caption>七大神聖植物精油・隨身能量防護</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://auslife.store/2/</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://auslife.store/2/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auslife.store/2/" />
+    <image:image>
+      <image:loc>https://auslife.store/og-image-2.png</image:loc>
+      <image:title>發財噴霧 Money Magnet Mist</image:title>
+      <image:caption>植物能量・財運磁場隨身香氛</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://auslife.store/3/</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://auslife.store/3/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auslife.store/3/" />
+    <image:image>
+      <image:loc>https://auslife.store/og-image-3.png</image:loc>
+      <image:title>避邪淨化噴霧真人實測</image:title>
+      <image:caption>超過 3,000 人見證・327 則真實評價</image:caption>
+    </image:image>
   </url>
 </urlset>
