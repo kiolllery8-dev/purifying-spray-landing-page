@@ -122,7 +122,7 @@ const productJsonLd = {
       {
         "@type": "Offer",
         name: "3 入組（免運）",
-        url: "https://www.auslife.com.tw/products/f11e2fa5-1e20-42cf-8e0c-3aa8d4f0e07d",
+        url: "https://www.auslife.com.tw/products/5765bc2e-f956-4a56-b508-cba23da22787",
         priceCurrency: "TWD",
         price: "699",
         availability: "https://schema.org/InStock",
@@ -190,7 +190,7 @@ const faqJsonLd = {
       acceptedAnswer: {
         "@type": "Answer",
         text:
-          "每瓶容量為 30ml，以每次噴 2-3 下的使用量計算，日常使用約可持續 1-2 個月。建議開封後 6 個月內使用完畢，以確保植物精華的最佳效果。",
+          "每瓶容量為 30ml，以每次噴 2-3 下的使用量計算，日常使用約可持續 14 天左右。建議開封後 6 個月內使用完畢，以確保植物精華的最佳效果。",
       },
     },
     {
@@ -217,7 +217,7 @@ const faqJsonLd = {
       acceptedAnswer: {
         "@type": "Answer",
         text:
-          "您可以透過本頁面下方的選購按鈕前往官方商城選購，提供四種超值組合：1 入 NT$290（不含運費）、2 入 NT$580（免運）、3 入 NT$699（免運）、6 入 NT$1,200（免運，單入最低 NT$200）。也可以透過 LINE 官方帳號（@auslife）諮詢客服了解更多組合方案。",
+          "您可以透過本頁面下方的選購按鈕前往官方商城選購，提供四種超值組合：1 入 NT$290（不含運費）、2 入 NT$580（免運）、3 入 NT$699（免運）、6 入 NT$1,200（免運）。也可以透過 LINE 官方帳號（@auslife）諮詢客服了解更多組合方案。",
       },
     },
     {

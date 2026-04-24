@@ -55,13 +55,14 @@ const CDN = {
 };
 
 const BUY_URL_SINGLE = "https://www.auslife.com.tw/products/f11e2fa5-1e20-42cf-8e0c-3aa8d4f0e07d";
+const BUY_URL_THREE = "https://www.auslife.com.tw/products/5765bc2e-f956-4a56-b508-cba23da22787";
 const BUY_URL_SIX = "https://www.auslife.com.tw/products/847a310e-b868-4212-8000-3d53c20fec66";
 const LINE_URL = "https://line.me/R/ti/p/@auslife";
 
 const BUNDLES = [
   { qty: 1, price: 290, original: 1280, ship: "不含運費", url: BUY_URL_SINGLE, tag: "" },
   { qty: 2, price: 580, original: 2560, ship: "免運", url: BUY_URL_SINGLE, tag: "" },
-  { qty: 3, price: 699, original: 3840, ship: "免運", url: BUY_URL_SINGLE, tag: "熱門" },
+  { qty: 3, price: 699, original: 3840, ship: "免運", url: BUY_URL_THREE, tag: "熱門" },
   { qty: 6, price: 1200, original: 7680, ship: "免運", url: BUY_URL_SIX, tag: "最超值" },
 ];
 
@@ -837,7 +838,7 @@ function ProductSection() {
               <img loading="lazy"
                 src={CDN.productOriginal}
                 alt="仙佛護持避邪淨化隨身噴霧"
-                className="w-72 md:w-80 lg:w-96 drop-shadow-2xl"
+                className="w-36 md:w-40 lg:w-48 drop-shadow-2xl"
               />
               <div className="absolute -inset-8 bg-gold/5 rounded-full blur-3xl -z-10" />
             </div>
@@ -1007,7 +1008,7 @@ const FAQ_DATA = [
   },
   {
     q: "一瓶可以用多久？",
-    a: "每瓶容量為 30ml，以每次噴 2-3 下的使用量計算，日常使用約可持續 1-2 個月。建議開封後 6 個月內使用完畢，以確保植物精華的最佳效果。",
+    a: "每瓶容量為 30ml，以每次噴 2-3 下的使用量計算，日常使用約可持續 14 天左右。建議開封後 6 個月內使用完畢，以確保植物精華的最佳效果。",
   },
   {
     q: "可以噴在身上嗎？會不會弄髒衣服？",
@@ -1019,7 +1020,7 @@ const FAQ_DATA = [
   },
   {
     q: "如何購買？有什麼優惠？",
-    a: "您可以透過本頁面下方的選購按鈕前往官方商城選購，提供四種超值組合：1 入 NT$290（不含運費）、2 入 NT$580（免運）、3 入 NT$699（免運）、6 入 NT$1,200（免運，單入最低 NT$200）。也可以透過 LINE 官方帳號（@auslife）諮詢客服了解更多組合方案。",
+    a: "您可以透過本頁面下方的選購按鈕前往官方商城選購，提供四種超值組合：1 入 NT$290（不含運費）、2 入 NT$580（免運）、3 入 NT$699（免運）、6 入 NT$1,200（免運）。也可以透過 LINE 官方帳號（@auslife）諮詢客服了解更多組合方案。",
   },
   {
     q: "有提供退換貨服務嗎？",
