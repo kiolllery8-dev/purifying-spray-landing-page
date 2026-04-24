@@ -922,16 +922,16 @@ function CTASection() {
                 )}
                 <div className="text-left">
                   <div className="flex items-baseline gap-2 mb-1">
-                    <span className="text-2xl md:text-3xl font-bold text-gold font-display">
+                    <span className="font-sans text-2xl md:text-3xl font-bold text-gold tabular-nums">
                       {b.qty} 入
                     </span>
-                    <span className="text-foreground/40 text-sm">單入 NT${perUnit}</span>
+                    <span className="font-sans text-foreground/40 text-sm tabular-nums">單入 NT${perUnit}</span>
                   </div>
                   <div className="flex items-baseline gap-2">
-                    <span className="font-display text-3xl md:text-4xl text-foreground font-bold">
+                    <span className="font-sans text-3xl md:text-4xl text-foreground font-bold tabular-nums">
                       NT${b.price.toLocaleString()}
                     </span>
-                    <span className="text-foreground/40 text-sm line-through">
+                    <span className="font-sans text-foreground/40 text-sm line-through tabular-nums">
                       NT${b.original.toLocaleString()}
                     </span>
                   </div>
