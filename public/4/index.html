@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AUS LIFE｜仙佛護持・避邪淨化隨身結界</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@500;700;900&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a0613;
+  --ink-2:#13091f;
+  --gold:#c8a25a;
+  --gold-light:#f0d38a;
+  --gold-deep:#8a6a33;
+  --crimson:#6e1d1d;
+  --jade:#2a4d3a;
+  --parchment:#f3e9d2;
+  --smoke:rgba(200,162,90,.15);
+}
+*{font-family:'Noto Sans TC',sans-serif;}
+.serif{font-family:'Noto Serif TC','ZCOOL XiaoWei',serif;letter-spacing:.05em;}
+.calligraphy{font-family:'ZCOOL XiaoWei','Noto Serif TC',serif;}
+body{
+  background:
+    radial-gradient(ellipse at top,#1a0f2e 0%,var(--ink) 50%,#000 100%);
+  color:var(--parchment);
+  background-attachment:fixed;
+}
+
+/* ========== 星空背景 ========== */
+.starfield{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.star{position:absolute;background:#fff;border-radius:50%;animation:twinkle 3s infinite;}
+@keyframes twinkle{0%,100%{opacity:.2;}50%{opacity:1;}}
+
+/* ========== 滾動進度（金線） ========== */
+#scroll-progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),var(--gold-light),var(--gold),transparent);z-index:999;width:0;box-shadow:0 0 10px var(--gold);}
+
+/* ========== 符咒角花裝飾 ========== */
+.corner-rune{position:absolute;width:60px;height:60px;opacity:.4;pointer-events:none;}
+.corner-rune.tl{top:20px;left:20px;}
+.corner-rune.tr{top:20px;right:20px;transform:scaleX(-1);}
+.corner-rune.bl{bottom:20px;left:20px;transform:scaleY(-1);}
+.corner-rune.br{bottom:20px;right:20px;transform:scale(-1,-1);}
+
+/* ========== 玄學分隔符 ========== */
+.mystic-divider{display:flex;align-items:center;justify-content:center;gap:12px;margin:24px 0;opacity:.7;}
+.mystic-divider::before,.mystic-divider::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.mystic-divider .sym{color:var(--gold);font-size:24px;}
+
+/* ========== Hero 標題切換 ========== */
+.hero-title-wrap{position:relative;height:200px;overflow:hidden;}
+@media(min-width:768px){.hero-title-wrap{height:260px;}}
+.hero-title{position:absolute;inset:0;opacity:0;transform:translateY(20px);transition:all 1s;display:flex;align-items:center;justify-content:center;text-align:center;}
+.hero-title.active{opacity:1;transform:translateY(0);}
+.hero-title h1{
+  background:linear-gradient(135deg,#fff 0%,var(--gold-light) 40%,var(--gold) 70%,var(--gold-deep) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  text-shadow:0 0 40px rgba(200,162,90,.3);
+}
+
+/* ========== Scroll reveal ========== */
+.reveal{opacity:0;transform:translateY(40px);transition:all .9s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+/* ========== 靈氣粒子 ========== */
+.ember{position:absolute;width:4px;height:4px;background:radial-gradient(circle,var(--gold-light),transparent);border-radius:50%;animation:ember-rise 8s infinite ease-out;pointer-events:none;}
+@keyframes ember-rise{
+  0%{transform:translateY(0) scale(1);opacity:0;}
+  10%,90%{opacity:1;}
+  100%{transform:translateY(-300px) scale(0);opacity:0;}
+}
+
+/* ========== 光暈旋轉 ========== */
+.aura{position:absolute;inset:-80px;background:conic-gradient(from 0deg,transparent,var(--gold),transparent,var(--gold-light),transparent);border-radius:50%;opacity:.3;animation:spin 20s linear infinite;filter:blur(40px);}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* ========== 產品圖片 glow ========== */
+.product-glow{position:relative;display:inline-block;}
+.product-glow::before{content:"";position:absolute;inset:-20px;background:radial-gradient(circle,rgba(200,162,90,.4),transparent 60%);border-radius:50%;animation:pulse-glow 4s infinite;z-index:-1;}
+@keyframes pulse-glow{0%,100%{transform:scale(1);opacity:.6;}50%{transform:scale(1.15);opacity:.9;}}
+
+/* ========== 身份認同清單 ========== */
+.identity-item{
+  display:flex;align-items:center;gap:14px;padding:16px 20px;
+  background:linear-gradient(135deg,rgba(243,233,210,.03),rgba(200,162,90,.05));
+  border:1px solid rgba(200,162,90,.2);
+  border-radius:8px;cursor:pointer;transition:all .4s;user-select:none;
+  backdrop-filter:blur(10px);
+}
+.identity-item:hover{border-color:var(--gold);transform:translateX(4px);background:rgba(200,162,90,.08);}
+.identity-item.checked{
+  background:linear-gradient(135deg,rgba(200,162,90,.15),rgba(200,162,90,.05));
+  border-color:var(--gold);
+  box-shadow:0 0 30px rgba(200,162,90,.2);
+}
+.identity-item .box{width:24px;height:24px;border:1.5px solid var(--gold-deep);border-radius:4px;display:flex;align-items:center;justify-content:center;transition:all .3s;flex-shrink:0;}
+.identity-item.checked .box{background:var(--gold);border-color:var(--gold);box-shadow:0 0 15px var(--gold);}
+.identity-item.checked .box::after{content:"✓";color:var(--ink);font-weight:900;}
+
+#identity-result{
+  background:linear-gradient(135deg,rgba(10,6,19,.9),rgba(19,9,31,.95));
+  border:1px solid var(--gold);
+  color:var(--parchment);padding:0 24px;border-radius:8px;margin-top:0;opacity:0;max-height:0;overflow:hidden;transition:all .5s;
+}
+#identity-result.show{opacity:1;max-height:400px;padding:24px;margin-top:20px;}
+
+/* ========== 卡片通用（玄學感） ========== */
+.mystic-card{
+  background:linear-gradient(135deg,rgba(243,233,210,.04),rgba(200,162,90,.02));
+  border:1px solid rgba(200,162,90,.2);
+  backdrop-filter:blur(10px);
+  border-radius:8px;
+  position:relative;
+  transition:all .4s;
+}
+.mystic-card:hover{border-color:var(--gold);box-shadow:0 0 40px rgba(200,162,90,.2);transform:translateY(-4px);}
+
+/* ========== Ingredient cards ========== */
+.ing-card{
+  background:linear-gradient(180deg,rgba(243,233,210,.05),rgba(10,6,19,.7));
+  border:1px solid rgba(200,162,90,.25);
+  padding:20px 14px;border-radius:8px;text-align:center;cursor:pointer;
+  transition:all .4s;overflow:hidden;position:relative;
+}
+.ing-card:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 10px 30px rgba(200,162,90,.2);}
+.ing-card img{width:100%;height:120px;object-fit:cover;border-radius:6px;margin-bottom:10px;filter:brightness(.85) contrast(1.1) sepia(.15);transition:filter .4s;}
+.ing-card:hover img{filter:brightness(1) contrast(1.15) sepia(.2);}
+.ing-card::after{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(200,162,90,.1),transparent);transition:left .8s;}
+.ing-card:hover::after{left:100%;}
+
+/* ========== Use case 情境卡 ========== */
+.use-case{
+  background:linear-gradient(135deg,rgba(243,233,210,.04),rgba(10,6,19,.8));
+  border:1px solid rgba(200,162,90,.2);
+  padding:24px 12px;border-radius:8px;text-align:center;cursor:pointer;transition:all .4s;
+}
+.use-case:hover{background:linear-gradient(135deg,rgba(200,162,90,.2),rgba(110,29,29,.3));border-color:var(--gold);transform:scale(1.03);}
+.use-case img{width:48px;height:48px;margin:0 auto 8px;border-radius:50%;object-fit:cover;border:1px solid var(--gold);filter:sepia(.3) brightness(.9);}
+
+/* ========== Testimonial ========== */
+.testimonial-slide{display:none;}
+.testimonial-slide.active{display:block;animation:fadeIn .8s;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+/* ========== Pricing ========== */
+.plan-card{
+  background:linear-gradient(135deg,rgba(243,233,210,.04),rgba(10,6,19,.7));
+  border:1px solid rgba(200,162,90,.25);
+  border-radius:10px;padding:24px 18px;cursor:pointer;transition:all .4s;position:relative;overflow:hidden;
+}
+.plan-card:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 14px 40px rgba(200,162,90,.25);}
+.plan-card.selected{
+  border-color:var(--gold);
+  background:linear-gradient(135deg,rgba(200,162,90,.2),rgba(110,29,29,.1));
+  box-shadow:0 0 40px rgba(200,162,90,.4);
+}
+.plan-card.popular::before{
+  content:"⭐ 最多人選";position:absolute;top:-1px;right:-1px;
+  background:linear-gradient(135deg,var(--gold-light),var(--gold));
+  color:var(--ink);padding:4px 14px;border-radius:0 10px 0 10px;font-size:12px;font-weight:700;
+}
+
+/* ========== FAQ ========== */
+.faq-item{background:rgba(243,233,210,.03);border:1px solid rgba(200,162,90,.2);border-radius:6px;margin-bottom:12px;overflow:hidden;transition:all .3s;}
+.faq-item:hover{border-color:rgba(200,162,90,.5);}
+.faq-q{padding:18px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:500;color:var(--parchment);}
+.faq-q::after{content:"◈";font-size:20px;color:var(--gold);transition:transform .4s;}
+.faq-item.open .faq-q::after{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;padding:0 24px;transition:all .5s;color:rgba(243,233,210,.75);}
+.faq-item.open .faq-a{max-height:400px;padding:0 24px 20px 24px;}
+
+/* ========== Countdown ========== */
+.countdown-box{
+  background:linear-gradient(180deg,rgba(0,0,0,.7),rgba(110,29,29,.3));
+  border:1px solid var(--gold);
+  padding:16px 12px;border-radius:8px;min-width:80px;text-align:center;
+  box-shadow:0 0 30px rgba(200,162,90,.2), inset 0 0 20px rgba(200,162,90,.1);
+}
+.countdown-box .num{font-family:'Noto Serif TC';font-size:38px;font-weight:900;color:var(--gold-light);line-height:1;text-shadow:0 0 20px var(--gold);}
+.countdown-box .label{font-size:11px;color:rgba(243,233,210,.6);margin-top:6px;letter-spacing:.2em;}
+
+/* ========== Inventory bar ========== */
+.inv-bar{height:8px;background:rgba(243,233,210,.1);border:1px solid rgba(200,162,90,.3);border-radius:4px;overflow:hidden;}
+.inv-fill{height:100%;background:linear-gradient(90deg,var(--crimson),var(--gold));transition:width 1s ease;box-shadow:0 0 10px var(--gold);}
+
+/* ========== Sticky CTA ========== */
+#sticky-cta{
+  position:fixed;bottom:0;left:0;right:0;
+  background:linear-gradient(135deg,rgba(10,6,19,.98),rgba(19,9,31,.98));
+  backdrop-filter:blur(20px);
+  border-top:1px solid var(--gold);
+  padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;z-index:100;
+  transform:translateY(100%);transition:transform .5s;
+  box-shadow:0 -10px 40px rgba(0,0,0,.5),0 -1px 20px rgba(200,162,90,.2);
+}
+#sticky-cta.show{transform:translateY(0);}
+
+/* ========== CTA Button ========== */
+.btn-cta{
+  background:linear-gradient(135deg,var(--gold-light),var(--gold),var(--gold-deep));
+  color:var(--ink);
+  padding:16px 32px;border-radius:6px;font-weight:700;transition:all .3s;
+  display:inline-block;border:1px solid var(--gold-light);cursor:pointer;
+  box-shadow:0 0 30px rgba(200,162,90,.4),inset 0 1px 0 rgba(255,255,255,.3);
+  letter-spacing:.05em;
+}
+.btn-cta:hover{box-shadow:0 0 50px rgba(200,162,90,.6),inset 0 1px 0 rgba(255,255,255,.4);transform:translateY(-2px);}
+
+.btn-ghost{border:1px solid var(--gold);color:var(--gold-light);padding:12px 24px;border-radius:6px;transition:all .3s;background:transparent;cursor:pointer;}
+.btn-ghost:hover{background:rgba(200,162,90,.1);}
+
+/* ========== Gift notification ========== */
+#gift-notif{
+  position:fixed;bottom:100px;right:20px;
+  background:linear-gradient(135deg,rgba(10,6,19,.98),rgba(19,9,31,.98));
+  border:1px solid var(--gold);color:var(--parchment);
+  padding:22px;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(200,162,90,.2);
+  max-width:320px;z-index:200;transform:translateX(120%);transition:transform .6s;
+}
+#gift-notif.show{transform:translateX(0);}
+
+/* ========== Quiz modal ========== */
+#quiz-modal{position:fixed;inset:0;background:rgba(0,0,0,.92);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;z-index:1000;padding:20px;}
+#quiz-modal.show{display:flex;}
+.quiz-box{background:linear-gradient(135deg,rgba(10,6,19,.98),rgba(19,9,31,.98));border:1px solid var(--gold);border-radius:12px;padding:36px;max-width:500px;width:100%;max-height:90vh;overflow:auto;box-shadow:0 0 80px rgba(200,162,90,.3);}
+.quiz-opt{padding:18px;border:1px solid rgba(200,162,90,.3);border-radius:6px;cursor:pointer;margin-bottom:12px;transition:all .3s;color:var(--parchment);}
+.quiz-opt:hover{border-color:var(--gold);background:rgba(200,162,90,.08);transform:translateX(4px);}
+
+/* ========== Live viewers ========== */
+.live-badge{
+  background:linear-gradient(135deg,rgba(10,6,19,.9),rgba(19,9,31,.9));
+  border:1px solid var(--gold);color:var(--parchment);
+  backdrop-filter:blur(10px);
+}
+.live-dot{width:8px;height:8px;background:#ff4444;border-radius:50%;display:inline-block;animation:pulse 1.5s infinite;box-shadow:0 0 10px #ff4444;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+/* ========== Avatar ========== */
+.avatar{width:60px;height:60px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);box-shadow:0 0 20px rgba(200,162,90,.3);}
+
+/* ========== Text gold ========== */
+.gold{color:var(--gold);}
+.gold-light{color:var(--gold-light);}
+
+/* ========== 符咒動畫 ========== */
+.talisman-bg{
+  position:absolute;opacity:.04;pointer-events:none;
+  font-family:'Noto Serif TC';font-size:180px;font-weight:900;color:var(--gold);
+}
+</style>
+</head>
+<body>
+
+<!-- 星空背景 -->
+<div class="starfield" id="starfield"></div>
+
+<!-- 滾動進度 -->
+<div id="scroll-progress"></div>
+
+<!-- Live viewers -->
+<div class="fixed top-4 right-4 live-badge rounded-full px-4 py-2 text-xs font-medium z-50 flex items-center gap-2">
+  <span class="live-dot"></span>
+  <span id="live-viewers">127</span> 人正在此地駐足
+</div>
+
+<!-- ============ SECTION 1｜HERO ============ -->
+<section class="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
+  <!-- 旋轉光暈 -->
+  <div class="aura" style="top:30%;left:50%;transform:translate(-50%,-50%);"></div>
+  <!-- 靈氣粒子 -->
+  <div class="ember" style="bottom:0;left:10%;animation-delay:0s;"></div>
+  <div class="ember" style="bottom:0;left:25%;animation-delay:2s;"></div>
+  <div class="ember" style="bottom:0;left:50%;animation-delay:4s;"></div>
+  <div class="ember" style="bottom:0;left:75%;animation-delay:1s;"></div>
+  <div class="ember" style="bottom:0;left:90%;animation-delay:3s;"></div>
+
+  <!-- 大符咒背景字 -->
+  <div class="talisman-bg serif" style="top:10%;left:5%;">結</div>
+  <div class="talisman-bg serif" style="bottom:10%;right:5%;">界</div>
+
+  <div class="max-w-5xl text-center relative z-10">
+
+    <div class="inline-flex items-center gap-3 border border-[var(--gold)] bg-black/30 backdrop-blur px-5 py-2 rounded-full text-sm mb-8 gold">
+      <span>✦</span><span>仙佛護持・能量結界</span><span>✦</span>
+    </div>
+
+    <div class="hero-title-wrap mb-8">
+      <div class="hero-title active">
+        <h1 class="serif text-4xl md:text-6xl font-black leading-tight">
+          每次遇到 X 人，<br>就覺得很煩嗎？
+        </h1>
+      </div>
+      <div class="hero-title">
+        <h1 class="serif text-4xl md:text-6xl font-black leading-tight">
+          常常被陰、<br>被搞、事情不順？
+        </h1>
+      </div>
+      <div class="hero-title">
+        <h1 class="serif text-4xl md:text-6xl font-black leading-tight">
+          香水能遮體味，<br>卻擋不住那些<br>看不見的東西。
+        </h1>
+      </div>
+      <div class="hero-title">
+        <h1 class="serif text-4xl md:text-6xl font-black leading-tight">
+          三秒、兩下、一瓶。<br>把壞磁場擋在<br>身體之外。
+        </h1>
+      </div>
+    </div>
+
+    <!-- 產品圖 + glow -->
+    <div class="product-glow my-10">
+      <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/product_8565c208.png"
+           alt="AUS LIFE Sacred Protection"
+           class="w-48 md:w-64 mx-auto drop-shadow-2xl">
+    </div>
+
+    <p class="text-base md:text-lg text-[var(--parchment)]/80 mb-10 max-w-2xl mx-auto calligraphy tracking-wider">
+      為自己升起第一道結界<br>
+      10ml 隨身・口袋・包包・書桌皆可
+    </p>
+
+    <button class="btn-cta text-lg" onclick="scrollToPlan()">
+      🛡️ 升起我的第一道結界 · NT$ 290 起
+    </button>
+
+    <div class="mystic-divider mt-12">
+      <span class="sym">✦</span>
+      <span class="gold text-xs tracking-[0.3em]">1 噴有感・2 入免運・已守護 12,847 位</span>
+      <span class="sym">✦</span>
+    </div>
+  </div>
+
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce gold text-xs tracking-widest">
+    ✧ 往下 ✧
+  </div>
+</section>
+
+<!-- ============ SECTION 2｜FEAR ============ -->
+<section class="py-24 px-6 relative">
+  <div class="talisman-bg serif" style="top:10%;right:10%;">煞</div>
+  <div class="max-w-4xl mx-auto relative z-10">
+    <div class="text-center mb-16 reveal">
+      <div class="mystic-divider"><span class="sym">✦</span><span class="gold text-xs tracking-widest">警 示</span><span class="sym">✦</span></div>
+      <h2 class="serif text-3xl md:text-5xl font-bold gold-light">你有沒有察覺——</h2>
+    </div>
+
+    <div class="space-y-5">
+      <div class="reveal flex gap-5 items-start p-6 mystic-card">
+        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/avatar_hospital-buALMgnoPEUAucXsAsUggT.webp" class="avatar flex-shrink-0" alt="">
+        <div>
+          <div class="font-bold text-lg mb-1 gold-light">探完病回家，沙發一坐就睡著</div>
+          <div class="text-[var(--parchment)]/70">醒來 — 比去之前還累。</div>
+        </div>
+      </div>
+      <div class="reveal flex gap-5 items-start p-6 mystic-card">
+        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/avatar_colleague-RgfHtbUUupZpvHD88TXCdB.webp" class="avatar flex-shrink-0" alt="">
+        <div>
+          <div class="font-bold text-lg mb-1 gold-light">開完某場會，一整週心情都悶</div>
+          <div class="text-[var(--parchment)]/70">明明事情沒那麼嚴重。</div>
+        </div>
+      </div>
+      <div class="reveal flex gap-5 items-start p-6 mystic-card">
+        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/avatar_miasma-F7pJemGCxckvyARbRTmrr9.webp" class="avatar flex-shrink-0" alt="">
+        <div>
+          <div class="font-bold text-lg mb-1 gold-light">搬新家第一個月，全家輪流感冒</div>
+          <div class="text-[var(--parchment)]/70">以為只是天氣。</div>
+        </div>
+      </div>
+      <div class="reveal flex gap-5 items-start p-6 mystic-card">
+        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/avatar_funeral-hAP56HEnLxJiuRAwVKevS5.webp" class="avatar flex-shrink-0" alt="">
+        <div>
+          <div class="font-bold text-lg mb-1 gold-light">參加告別式後，連夜做惡夢</div>
+          <div class="text-[var(--parchment)]/70">不敢跟家人說。</div>
+        </div>
+      </div>
+      <div class="reveal flex gap-5 items-start p-6 mystic-card">
+        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/avatar_spirit-PaKSCv5u5wSWCfgQ5yH7Tj.webp" class="avatar flex-shrink-0" alt="">
+        <div>
+          <div class="font-bold text-lg mb-1 gold-light">半夜醒來，感覺房間不是只有自己</div>
+          <div class="text-[var(--parchment)]/70">心跳亂了好幾拍。</div>
+        </div>
+      </div>
+      <div class="reveal flex gap-5 items-start p-6 mystic-card">
+        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/avatar_karma-AhhQWgXELyAUdY9ypnX7YA.webp" class="avatar flex-shrink-0" alt="">
+        <div>
+          <div class="font-bold text-lg mb-1 gold-light">一段時間諸事不順</div>
+          <div class="text-[var(--parchment)]/70">連小事也接連出差錯。</div>
+        </div>
+      </div>
+      <div class="reveal flex gap-5 items-start p-6 mystic-card">
+        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/avatar_unlucky-7SH2JgVqUPwWcHNU67nKmu.webp" class="avatar flex-shrink-0" alt="">
+        <div>
+          <div class="font-bold text-lg mb-1 gold-light">生病找不到病因</div>
+          <div class="text-[var(--parchment)]/70">去醫院檢查 — 都沒事。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-16 text-center reveal">
+      <p class="serif text-xl md:text-2xl gold-light mb-2">不是你想太多。</p>
+      <p class="serif text-2xl md:text-3xl font-bold gold">是你的氣場，沾了別人的東西。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 3｜IDENTITY CHECKLIST ============ -->
+<section class="py-24 px-6 relative">
+  <div class="talisman-bg serif" style="top:15%;left:5%;">問</div>
+  <div class="max-w-3xl mx-auto relative z-10">
+    <div class="text-center mb-12 reveal">
+      <div class="mystic-divider"><span class="sym">✦</span><span class="gold text-xs tracking-widest">勾 選 · 對 號 入 座</span><span class="sym">✦</span></div>
+      <h2 class="serif text-3xl md:text-5xl font-bold gold-light mb-4">這瓶 不是給迷信的人用的</h2>
+      <p class="text-xl text-[var(--parchment)]/70 calligraphy">是給這種人用的——</p>
+    </div>
+
+    <div class="space-y-3 reveal">
+      <label class="identity-item" onclick="toggleIdentity(this)">
+        <div class="box"></div>
+        <div>你知道「人的能量」是真的</div>
+      </label>
+      <label class="identity-item" onclick="toggleIdentity(this)">
+        <div class="box"></div>
+        <div>你不想靠玄學，但尊重看不見的東西</div>
+      </label>
+      <label class="identity-item" onclick="toggleIdentity(this)">
+        <div class="box"></div>
+        <div>你希望自己強一點，也希望家人好一點</div>
+      </label>
+      <label class="identity-item" onclick="toggleIdentity(this)">
+        <div class="box"></div>
+        <div>你不迷信，但你信「能量 磁場」</div>
+      </label>
+      <label class="identity-item" onclick="toggleIdentity(this)">
+        <div class="box"></div>
+        <div>你是家裡那個默默幫大家打點一切的人</div>
+      </label>
+    </div>
+
+    <div id="identity-result">
+      <div class="flex items-start gap-4">
+        <div class="text-3xl gold">◈</div>
+        <div>
+          <div class="gold font-bold mb-2 serif">應驗 <span id="score-num">0</span> / 5 則</div>
+          <div id="score-text" class="text-[var(--parchment)]/90"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 4｜SENSORY ============ -->
+<section class="py-24 px-6 relative overflow-hidden" style="background:radial-gradient(ellipse at center,rgba(200,162,90,.08),transparent 70%);">
+  <div class="ember" style="bottom:0;left:20%;animation-delay:0s;"></div>
+  <div class="ember" style="bottom:0;left:50%;animation-delay:3s;"></div>
+  <div class="ember" style="bottom:0;left:80%;animation-delay:5s;"></div>
+
+  <div class="max-w-3xl mx-auto text-center relative z-10">
+    <div class="mystic-divider reveal"><span class="sym">✦</span><span class="gold text-xs tracking-widest">初 次 噴 灑</span><span class="sym">✦</span></div>
+    <h2 class="serif text-3xl md:text-5xl font-bold mb-12 reveal gold-light">客戶第一次的反應——</h2>
+
+    <div class="grid md:grid-cols-3 gap-5 mb-16">
+      <div class="reveal mystic-card p-6">
+        <div class="serif text-xl gold mb-2">「咦，肩膀鬆了。」</div>
+      </div>
+      <div class="reveal mystic-card p-6">
+        <div class="serif text-xl gold mb-2">「我剛剛在急什麼？」</div>
+      </div>
+      <div class="reveal mystic-card p-6">
+        <div class="serif text-xl gold mb-2">「心跳慢下來了。」</div>
+      </div>
+    </div>
+
+    <div class="reveal text-lg md:text-xl text-[var(--parchment)]/90 mb-8">
+      你不用相信它有用。<br>
+      <span class="gold font-bold">你只需要試一次。</span>
+    </div>
+    <div class="reveal serif text-xl md:text-2xl leading-loose calligraphy">
+      第一下噴在衣領<br>
+      第二下噴在手腕內側<br>
+      <span class="gold">深 · 呼 · 吸</span><br><br>
+      那木質、乳香、雪松交織的氣味<br>
+      會告訴你什麼叫<span class="gold">「我 · 是 · 安 · 全 · 的」</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 5｜INGREDIENTS (真實圖片) ============ -->
+<section class="py-24 px-6 relative">
+  <div class="talisman-bg serif" style="top:5%;right:5%;">神</div>
+  <div class="max-w-6xl mx-auto relative z-10">
+    <div class="text-center mb-12 reveal">
+      <div class="mystic-divider"><span class="sym">✦</span><span class="gold text-xs tracking-widest">七 大 神 聖 植 物</span><span class="sym">✦</span></div>
+      <h2 class="serif text-3xl md:text-5xl font-bold gold-light mb-4">千年淨化・現代萃取</h2>
+      <p class="text-[var(--parchment)]/70 calligraphy">跨越三大洲的神聖配方</p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 reveal">
+      <div class="ing-card">
+        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/palo_santo-39ESnvRteMRMaekM4xvpGS.webp" alt="秘魯聖木">
+        <div class="font-bold gold-light">Palo Santo</div>
+        <div class="text-xs text-[var(--parchment)]/60 mt-1">秘魯聖木｜南美</div>
+      </div>
+      <div class="ing-card">
+        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/juniper-4GBwxLrzzHMT7uVSuUxLWY.webp" alt="杜松">
+        <div class="font-bold gold-light">Juniper</div>
+        <div class="text-xs text-[var(--parchment)]/60 mt-1">杜松｜歐洲</div>
+      </div>
+      <div class="ing-card">
+        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/vetiver-C2wc3N6hrpYnbsCjozYJhr.webp" alt="岩蘭草">
+        <div class="font-bold gold-light">Vetiver</div>
+        <div class="text-xs text-[var(--parchment)]/60 mt-1">岩蘭草｜印度</div>
+      </div>
+      <div class="ing-card">
+        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/white_sage-HjyKZboh263Ai7LXXcroF8.webp" alt="白鼠尾草">
+        <div class="font-bold gold-light">White Sage</div>
+        <div class="text-xs text-[var(--parchment)]/60 mt-1">白鼠尾草｜北美</div>
+      </div>
+      <div class="ing-card">
+        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/atlas_cedar-9dniBVrfswnmWqvzE842M3.webp" alt="大西洋雪松">
+        <div class="font-bold gold-light">Atlas Cedar</div>
+        <div class="text-xs text-[var(--parchment)]/60 mt-1">大西洋雪松｜摩洛哥</div>
+      </div>
+      <div class="ing-card">
+        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/frankincense-UkD8S6LPms9kgV7pPVvBcW.webp" alt="乳香">
+        <div class="font-bold gold-light">Frankincense</div>
+        <div class="text-xs text-[var(--parchment)]/60 mt-1">乳香｜阿拉伯</div>
+      </div>
+      <div class="ing-card">
+        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/myrrh-YwasQaYexDgtRbPn4VyTaC.webp" alt="沒藥">
+        <div class="font-bold gold-light">Myrrh</div>
+        <div class="text-xs text-[var(--parchment)]/60 mt-1">沒藥｜非洲</div>
+      </div>
+      <div class="ing-card flex flex-col items-center justify-center" style="background:linear-gradient(135deg,rgba(200,162,90,.15),rgba(110,29,29,.3));">
+        <div class="text-4xl gold mb-2">✦</div>
+        <div class="font-bold gold-light">自己的信仰儀式</div>
+        <div class="text-xs text-[var(--parchment)]/70 mt-1">依你的心安排</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 6｜AUTHORITY ============ -->
+<section class="py-24 px-6 relative">
+  <div class="max-w-4xl mx-auto relative z-10">
+    <div class="text-center mb-12 reveal">
+      <div class="mystic-divider"><span class="sym">✦</span><span class="gold text-xs tracking-widest">值 得 信 任</span><span class="sym">✦</span></div>
+      <h2 class="serif text-3xl md:text-5xl font-bold gold-light">憑什麼？</h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-5">
+      <div class="reveal mystic-card p-6">
+        <div class="gold font-bold mb-2 serif">◈ 開光來源</div>
+        <div class="text-[var(--parchment)]/90">你的場域・你的師父<br>用你的信仰 · 為你自己加持</div>
+      </div>
+      <div class="reveal mystic-card p-6">
+        <div class="gold font-bold mb-2 serif">◈ 精油認證</div>
+        <div class="text-[var(--parchment)]/90">澳洲/法國進口<br>IFA 國際芳療認證等級</div>
+      </div>
+      <div class="reveal mystic-card p-6">
+        <div class="gold font-bold mb-2 serif">◈ 成分安心</div>
+        <div class="text-[var(--parchment)]/90">100% 天然植物精油<br>無酒精 · 無化學添加 · 孕婦可用</div>
+      </div>
+      <div class="reveal mystic-card p-6">
+        <div class="gold font-bold mb-2 serif">◈ 累積守護</div>
+        <div class="text-[var(--parchment)]/90"><span class="serif text-3xl font-black gold">12,847</span> 位使用者<br>持續更新中</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 7｜USE CASES ============ -->
+<section class="py-24 px-6 relative">
+  <div class="max-w-5xl mx-auto relative z-10">
+    <div class="text-center mb-12 reveal">
+      <div class="mystic-divider"><span class="sym">✦</span><span class="gold text-xs tracking-widest">適 用 情 境</span><span class="sym">✦</span></div>
+      <h2 class="serif text-3xl md:text-5xl font-bold gold-light">八 種 場 合</h2>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 reveal">
+      <div class="use-case">
+        <div class="text-3xl gold mb-2">💼</div>
+        <div>辦公室</div>
+      </div>
+      <div class="use-case">
+        <div class="text-3xl gold mb-2">🚇</div>
+        <div>捷運公共空間</div>
+      </div>
+      <div class="use-case">
+        <div class="text-3xl gold mb-2">🏥</div>
+        <div>醫院探病</div>
+      </div>
+      <div class="use-case">
+        <div class="text-3xl gold mb-2">🏠</div>
+        <div>搬新家裝潢</div>
+      </div>
+      <div class="use-case">
+        <div class="text-3xl gold mb-2">🕊️</div>
+        <div>參加告別式</div>
+      </div>
+      <div class="use-case">
+        <div class="text-3xl gold mb-2">🧘</div>
+        <div>冥想靜心前</div>
+      </div>
+      <div class="use-case">
+        <div class="text-3xl gold mb-2">✈️</div>
+        <div>旅行住宿</div>
+      </div>
+      <div class="use-case">
+        <div class="text-3xl gold mb-2">🌙</div>
+        <div>磁場混亂時</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 8｜TESTIMONIAL CAROUSEL ============ -->
+<section class="py-24 px-6 relative">
+  <div class="talisman-bg serif" style="top:20%;left:10%;">證</div>
+  <div class="max-w-3xl mx-auto relative z-10">
+    <div class="text-center mb-12 reveal">
+      <div class="mystic-divider"><span class="sym">✦</span><span class="gold text-xs tracking-widest">真 實 見 證</span><span class="sym">✦</span></div>
+      <h2 class="serif text-3xl md:text-5xl font-bold gold-light">他們的故事</h2>
+    </div>
+    <div class="relative mystic-card p-8 md:p-12 min-h-[300px] reveal">
+      <div class="testimonial-slide active">
+        <div class="flex items-center gap-4 mb-6">
+          <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/avatar_unlucky-7SH2JgVqUPwWcHNU67nKmu.webp" class="avatar" alt="">
+          <div>
+            <div class="gold font-bold">陳志豪・45 歲</div>
+            <div class="text-xs text-[var(--parchment)]/60">工程師・岳母照顧者</div>
+          </div>
+        </div>
+        <div class="gold text-3xl mb-2 serif">"</div>
+        <p class="text-lg leading-relaxed text-[var(--parchment)]/90">說真的我本來覺得這是噱頭。買來是要送岳母的。結果她忘了帶走，我隨手噴了一下⋯<br><br><span class="font-bold gold-light">當晚是我近半年睡最好的一次。</span><br>現在家裡三個人都有一瓶。</p>
+      </div>
+      <div class="testimonial-slide">
+        <div class="flex items-center gap-4 mb-6">
+          <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/avatar_hospital-buALMgnoPEUAucXsAsUggT.webp" class="avatar" alt="">
+          <div>
+            <div class="gold font-bold">林小萱・30 歲</div>
+            <div class="text-xs text-[var(--parchment)]/60">醫院行政</div>
+          </div>
+        </div>
+        <div class="gold text-3xl mb-2 serif">"</div>
+        <p class="text-lg leading-relaxed text-[var(--parchment)]/90">每次去探病前先噴，回家後不再覺得身體沉重。<br><br><span class="font-bold gold-light">以前要躺兩小時，現在洗個澡就恢復了。</span></p>
+      </div>
+      <div class="testimonial-slide">
+        <div class="flex items-center gap-4 mb-6">
+          <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/avatar_spirit-PaKSCv5u5wSWCfgQ5yH7Tj.webp" class="avatar" alt="">
+          <div>
+            <div class="gold font-bold">許淑芬・40 歲</div>
+            <div class="text-xs text-[var(--parchment)]/60">行銷經理</div>
+          </div>
+        </div>
+        <div class="gold text-3xl mb-2 serif">"</div>
+        <p class="text-lg leading-relaxed text-[var(--parchment)]/90">我不是什麼靈異體質，但就是對「氣」敏感。噴了之後像多了一層隱形保護罩——<br><br><span class="font-bold gold-light">尤其進到醫院、告別式那種地方，差別真的很大。</span></p>
+      </div>
+
+      <div class="flex justify-center gap-3 mt-8">
+        <button class="w-2 h-2 rounded-full testimonial-dot active" style="background:var(--gold);" onclick="showTestimonial(0)"></button>
+        <button class="w-2 h-2 rounded-full testimonial-dot" style="background:rgba(200,162,90,.3);" onclick="showTestimonial(1)"></button>
+        <button class="w-2 h-2 rounded-full testimonial-dot" style="background:rgba(200,162,90,.3);" onclick="showTestimonial(2)"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 9｜RITUAL MANIFESTO ============ -->
+<section class="py-24 px-6 relative">
+  <div class="max-w-2xl mx-auto text-center reveal relative z-10">
+    <div class="product-glow inline-block mb-8">
+      <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/shield_5ad71f1e.png" alt="守護" class="w-32 mx-auto">
+    </div>
+    <div class="mystic-divider"><span class="sym">✦</span><span class="gold text-xs tracking-widest">寫 給 那 個 總 是 撐 著 的 你</span><span class="sym">✦</span></div>
+    <h2 class="serif text-3xl md:text-5xl font-bold gold-light mb-10">這不是一瓶噴霧</h2>
+    <p class="serif text-xl md:text-2xl leading-loose calligraphy mb-10 text-[var(--parchment)]/90">
+      是你每天三秒的<br>
+      <span class="gold">自 · 我 · 對 · 話</span>
+    </p>
+    <div class="space-y-5 text-lg mb-10">
+      <div><span class="gold">一下</span>噴在衣領——<span class="gold-light font-bold">「我 是 安 全 的」</span></div>
+      <div><span class="gold">兩下</span>噴在手腕——<span class="gold-light font-bold">「我 可 以 放 下」</span></div>
+      <div><span class="gold">深呼吸</span>——<span class="gold-light font-bold">「我 值 得 被 守 護」</span></div>
+    </div>
+    <div class="mystic-divider"><span class="sym">✦</span></div>
+    <p class="serif text-xl md:text-2xl leading-loose calligraphy text-[var(--parchment)]/90">
+      一瓶用完<br>
+      你會發現<br>
+      <span class="text-[var(--parchment)]/60 text-base">改變的不是空氣</span><br>
+      是 · <span class="gold">你 · 自 · 己</span>
+    </p>
+  </div>
+</section>
+
+<!-- ============ SECTION 10｜PRICING LADDER ============ -->
+<section id="plan-section" class="py-24 px-6 relative">
+  <div class="talisman-bg serif" style="top:5%;left:8%;">擇</div>
+  <div class="max-w-5xl mx-auto relative z-10">
+    <div class="text-center mb-12 reveal">
+      <div class="mystic-divider"><span class="sym">✦</span><span class="gold text-xs tracking-widest">選 擇 你 的 守 護</span><span class="sym">✦</span></div>
+      <h2 class="serif text-3xl md:text-5xl font-bold gold-light mb-4">3 階 方 案</h2>
+      <p class="text-[var(--parchment)]/70 calligraphy">從小試到全家 · 循序漸進</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-4 reveal">
+      <div class="plan-card" onclick="selectPlan(this,290,'日常 1 入')">
+        <div class="text-3xl mb-3 gold">◑</div>
+        <div class="font-bold text-lg mb-1 gold-light">日常 1 入</div>
+        <div class="text-xs text-[var(--parchment)]/60 mb-4">通勤族 · 日常保護</div>
+        <div class="serif text-3xl font-black gold">$290</div>
+      </div>
+      <div class="plan-card popular selected" onclick="selectPlan(this,520,'2 入組合')">
+        <div class="text-3xl mb-3 gold">◉</div>
+        <div class="font-bold text-lg mb-1 gold-light">2 入組合</div>
+        <div class="text-xs text-[var(--parchment)]/60 mb-4">2×10ml · 自用+送禮</div>
+        <div class="serif text-3xl font-black gold">$520</div>
+        <div class="text-xs gold font-bold mt-1">省 $60 · 免運</div>
+      </div>
+      <div class="plan-card" onclick="selectPlan(this,990,'全家守護 4 入')">
+        <div class="text-3xl mb-3 gold">●</div>
+        <div class="font-bold text-lg mb-1 gold-light">全家守護 4 入</div>
+        <div class="text-xs text-[var(--parchment)]/60 mb-4">4×10ml · 全家一人一瓶</div>
+        <div class="serif text-3xl font-black gold">$990</div>
+      </div>
+    </div>
+
+    <div class="text-center mt-10">
+      <button class="btn-cta text-lg" onclick="goCheckout()">
+        ✦ 加入購物車 · <span id="selected-price">$520</span> ✦
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 11｜FAQ ============ -->
+<section class="py-24 px-6 relative">
+  <div class="max-w-3xl mx-auto relative z-10">
+    <div class="text-center mb-12 reveal">
+      <div class="mystic-divider"><span class="sym">✦</span><span class="gold text-xs tracking-widest">常 見 疑 問</span><span class="sym">✦</span></div>
+      <h2 class="serif text-3xl md:text-5xl font-bold gold-light">問 · 答</h2>
+    </div>
+    <div class="reveal">
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">我不是很相信這種東西，會有效嗎？</div><div class="faq-a">90% 客戶第一次使用後都有類似反應「肩膀變鬆」「心跳慢下來」。你不需要相信，你只需要試 30 天——不滿意原罐退，運費我們出。</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">這個和一般香水有什麼差別？</div><div class="faq-a">香水為了好聞、有前中後調；這支為了守護能量場，用的是有淨化歷史的七大神聖植物純精油，並經儀式加持。氣味比較沉、不華麗，但穩定。</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">真的有仙佛加持嗎？</div><div class="faq-a">我們所說的「加持」<br>其實就是回到您自己的信仰。<br><br>不管您是拜佛、拜神<br>或是有自己的師父<br>都可以依照自己的習慣——<br>過香爐、唸個心安、做個簡單儀式。<br><br>讓這一瓶不只是噴霧<br>而是專屬於您的「防護罩」<br>帶著您自己的保護與安心。<br><br>噴的同時<br>也讓自己更穩、能量更強、更乾淨<br>心也比較安定。</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">噴在皮膚上會過敏嗎？</div><div class="faq-a">配方是精油調和基底，建議主要噴在衣物、包包、手腕外側。如有敏感肌疑慮，請先局部測試。</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">一瓶 10ml 可以用多久？</div><div class="faq-a">正常使用（每天 2–6 下）約 1~2 周。</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">送禮適合嗎？</div><div class="faq-a">非常適合。尤其適合送給常進出醫院的親友、剛搬家的朋友、從事服務業/醫護/禮儀業的人、喜歡身心靈的長輩。</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">孕婦、小孩可以用嗎？</div><div class="faq-a">可以的。小孩噴於衣物外部。長輩完全可用。</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">運費怎麼算？</div><div class="faq-a">全台本島：2 入以上免運，1 入 $60。離島/海外另計。</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 12｜COUNTDOWN + INVENTORY ============ -->
+<section class="py-24 px-6 relative" style="background:linear-gradient(180deg,transparent,rgba(110,29,29,.2),transparent);">
+  <div class="talisman-bg serif" style="top:5%;right:5%;">急</div>
+  <div class="max-w-3xl mx-auto text-center relative z-10">
+    <div class="inline-block border border-red-500/50 bg-red-500/10 text-red-300 px-5 py-2 rounded-full text-sm mb-6 reveal tracking-widest">
+      ⚠ 本月加持靈氣守護 · 即將售罄
+    </div>
+    <h2 class="serif text-4xl md:text-6xl font-black mb-6 reveal">
+      僅 <span id="inventory-num" class="gold-light" style="text-shadow:0 0 40px var(--gold);">53</span> 瓶
+    </h2>
+    <p class="text-[var(--parchment)]/70 mb-10 reveal calligraphy leading-loose">
+      白色羽毛靈氣加持 · 每月只加持一次<br>四月份 300 瓶 · 已出 247 瓶<br>賣完 · 須等下月農曆 15 日
+    </p>
+
+    <div class="max-w-md mx-auto mb-10 reveal">
+      <div class="inv-bar">
+        <div class="inv-fill" id="inv-fill" style="width:82%;"></div>
+      </div>
+      <div class="flex justify-between text-xs text-[var(--parchment)]/60 mt-2">
+        <span>已售 <span id="sold-num">247</span></span>
+        <span>本月配額 300</span>
+      </div>
+    </div>
+
+    <div class="flex justify-center gap-3 md:gap-4 mb-10 reveal">
+      <div class="countdown-box"><div class="num" id="cd-hours">00</div><div class="label">HOURS</div></div>
+      <div class="countdown-box"><div class="num" id="cd-mins">00</div><div class="label">MINS</div></div>
+      <div class="countdown-box"><div class="num" id="cd-secs">00</div><div class="label">SECS</div></div>
+    </div>
+
+    <div class="mystic-card p-6 mb-8 reveal">
+      <div class="gold font-bold mb-2 serif">◈ 前 50 位下單加贈</div>
+      <div>守護小圓缽・可噴在上面凹槽處<br><span class="text-[var(--parchment)]/60 text-sm">（價值 $90）</span></div>
+    </div>
+
+    <button class="btn-cta text-lg reveal" onclick="goCheckout()">
+      ✦ 現在下單 ✦
+    </button>
+  </div>
+</section>
+
+<!-- ============ SECTION 13｜FINAL CTA ============ -->
+<section class="py-24 px-6 relative">
+  <div class="max-w-2xl mx-auto text-center reveal relative z-10">
+    <div class="product-glow inline-block mb-8">
+      <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663413887714/VizcmhaMFeJmFoPCcusNnS/product_original_ac29e218.png" alt="" class="w-40 mx-auto">
+    </div>
+    <div class="mystic-divider"><span class="sym">✦</span><span class="gold text-xs tracking-widest">最 後 一 問</span><span class="sym">✦</span></div>
+    <h2 class="serif text-3xl md:text-5xl font-bold gold-light mb-6">準備好了嗎？</h2>
+    <p class="text-lg text-[var(--parchment)]/80 mb-10 calligraphy">升起你的第一道結界 · 從今晚開始</p>
+    <button class="btn-cta text-xl mb-6" onclick="goCheckout()">
+      🛡️ 升起我的第一道結界
+    </button>
+    <div><a href="#" class="btn-ghost">還有疑問？LINE 一對一諮詢</a></div>
+    <div class="mt-10 flex justify-center gap-6 text-sm gold flex-wrap tracking-widest">
+      <span>✦ 1 噴有感 ✦</span>
+      <span>✦ 2 入免運 ✦</span>
+      <span>✦ 已守護 12,847 位 ✦</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-[var(--gold)]/20 py-12 px-6">
+  <div class="max-w-4xl mx-auto text-center">
+    <div class="serif text-2xl gold mb-2">✦ AUS LIFE Sacred Protection ✦</div>
+    <p class="text-[var(--parchment)]/60 italic mb-6 calligraphy">願守護神時刻看顧您 · 讓安定與保護 · 從此刻開始</p>
+    <div class="text-sm text-[var(--parchment)]/50 space-y-1">
+      <div>📧 service@auslife.store · 💬 LINE @auslife · 📷 @auslife.store</div>
+      <div class="pt-4">© 2026 AUS LIFE · 台灣製造 · 每批檢驗 · IFA 認證</div>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY CTA BAR -->
+<div id="sticky-cta">
+  <div class="text-[var(--parchment)] text-sm">
+    <div class="font-bold gold-light">✦ 剩 <span id="sticky-inv">53</span> 瓶 · <span id="sticky-time">今晚截止</span></div>
+    <div class="text-[var(--parchment)]/60 text-xs">已選：<span id="sticky-plan">雙入組合 $520</span></div>
+  </div>
+  <button class="btn-cta whitespace-nowrap" onclick="goCheckout()">立即下單 →</button>
+</div>
+
+<!-- GIFT NOTIFICATION -->
+<div id="gift-notif">
+  <div class="font-bold gold-light mb-2 serif">✦ 你觸發了隱藏優惠</div>
+  <div class="text-sm text-[var(--parchment)]/80 mb-3">讀到這裡 · 代表你認真在找解方。<br>下單輸入代碼 <b class="gold">READ2026</b> · 再折 $50。</div>
+  <button class="text-xs text-[var(--parchment)]/50 underline" onclick="document.getElementById('gift-notif').classList.remove('show')">關閉</button>
+</div>
+
+<!-- QUIZ MODAL -->
+<div id="quiz-modal">
+  <div class="quiz-box">
+    <div class="mystic-divider"><span class="sym">✦</span><span class="gold text-xs tracking-widest">30 秒 · 找到你的結界</span><span class="sym">✦</span></div>
+    <h3 class="serif text-2xl font-bold gold-light mb-6 text-center" id="quiz-q">你最需要守護的是？</h3>
+    <div id="quiz-opts">
+      <div class="quiz-opt" onclick="quizAns('職場')">💼 職場 · 會議磁場</div>
+      <div class="quiz-opt" onclick="quizAns('醫院')">🏥 醫院 · 探病路線</div>
+      <div class="quiz-opt" onclick="quizAns('家裡')">🏠 家裡 · 新居淨化</div>
+      <div class="quiz-opt" onclick="quizAns('自己')">🧘 自己 · 情緒淨化</div>
+    </div>
+    <button class="text-xs text-[var(--parchment)]/40 underline mt-4 block mx-auto" onclick="closeQuiz()">略過</button>
+  </div>
+</div>
+
+<script>
+// 星空產生
+(function(){
+  const sf = document.getElementById('starfield');
+  for (let i = 0; i < 80; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    const size = Math.random() * 2 + 0.5;
+    s.style.width = size + 'px';
+    s.style.height = size + 'px';
+    s.style.top = Math.random() * 100 + '%';
+    s.style.left = Math.random() * 100 + '%';
+    s.style.animationDelay = Math.random() * 3 + 's';
+    sf.appendChild(s);
+  }
+})();
+
+// 滾動進度
+const progressBar = document.getElementById('scroll-progress');
+let giftShown = false;
+window.addEventListener('scroll', () => {
+  const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  progressBar.style.width = scrolled + '%';
+  if (window.scrollY > window.innerHeight * 0.7) {
+    document.getElementById('sticky-cta').classList.add('show');
+  } else {
+    document.getElementById('sticky-cta').classList.remove('show');
+  }
+  if (scrolled > 75 && !giftShown) {
+    giftShown = true;
+    setTimeout(() => document.getElementById('gift-notif').classList.add('show'), 500);
+  }
+});
+
+// Hero rotation
+const heroTitles = document.querySelectorAll('.hero-title');
+let heroIdx = 0;
+setInterval(() => {
+  heroTitles[heroIdx].classList.remove('active');
+  heroIdx = (heroIdx + 1) % heroTitles.length;
+  heroTitles[heroIdx].classList.add('active');
+}, 5000);
+
+// Reveal
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+// Identity
+function toggleIdentity(el) {
+  el.classList.toggle('checked');
+  const count = document.querySelectorAll('.identity-item.checked').length;
+  const result = document.getElementById('identity-result');
+  const scoreNum = document.getElementById('score-num');
+  const scoreText = document.getElementById('score-text');
+  if (count >= 1) {
+    result.classList.add('show');
+    scoreNum.textContent = count;
+    const msgs = {
+      1: '你已經進到「意識到」的階段——這比 90% 的人走得更前面。',
+      2: '你已經是那個會幫家人擋事的人。這瓶是你該有的工具。',
+      3: '你的敏感度很高，建議從「日常單瓶」或「雙入」開始。',
+      4: '你對能量極度敏感——這瓶幾乎為你量身打造。',
+      5: '全部應驗。推薦你直接選「全家守護組」一次到位。'
+    };
+    scoreText.textContent = msgs[Math.min(count, 5)];
+  } else {
+    result.classList.remove('show');
+  }
+}
+
+// Testimonial
+function showTestimonial(i) {
+  document.querySelectorAll('.testimonial-slide').forEach((s, idx) => s.classList.toggle('active', idx === i));
+  document.querySelectorAll('.testimonial-dot').forEach((d, idx) => {
+    d.style.background = idx === i ? 'var(--gold)' : 'rgba(200,162,90,.3)';
+  });
+}
+let tIdx = 0;
+setInterval(() => { tIdx = (tIdx + 1) % 3; showTestimonial(tIdx); }, 7000);
+
+// Plan
+let selectedPrice = 520;
+function selectPlan(el, price, name) {
+  document.querySelectorAll('.plan-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedPrice = price;
+  document.getElementById('selected-price').textContent = '$' + price;
+  document.getElementById('sticky-plan').textContent = name + ' $' + price;
+}
+function scrollToPlan() { document.getElementById('plan-section').scrollIntoView({ behavior: 'smooth' }); }
+
+// FAQ
+function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+
+// Countdown
+function updateCountdown() {
+  const now = new Date();
+  const end = new Date();
+  end.setHours(23, 59, 59, 999);
+  let diff = end - now;
+  if (diff < 0) diff += 86400000;
+  const h = Math.floor(diff / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
+  document.getElementById('cd-mins').textContent = String(m).padStart(2, '0');
+  document.getElementById('cd-secs').textContent = String(s).padStart(2, '0');
+  document.getElementById('sticky-time').textContent = h + ':' + String(m).padStart(2, '0') + ' 後結束';
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// Inventory
+let inventory = 53;
+function decrementInventory() {
+  if (inventory > 20 && Math.random() > 0.5) {
+    inventory--;
+    const sold = 300 - inventory;
+    document.getElementById('inventory-num').textContent = inventory;
+    document.getElementById('sticky-inv').textContent = inventory;
+    document.getElementById('sold-num').textContent = sold;
+    document.getElementById('inv-fill').style.width = (sold / 300 * 100) + '%';
+  }
+}
+setInterval(decrementInventory, 1000 * 60 * (3 + Math.random() * 5));
+
+// Live viewers
+let viewers = 127;
+setInterval(() => {
+  viewers += Math.floor(Math.random() * 7 - 3);
+  if (viewers < 80) viewers = 80;
+  if (viewers > 180) viewers = 180;
+  document.getElementById('live-viewers').textContent = viewers;
+}, 4500);
+
+// Quiz
+setTimeout(() => { if (!localStorage.getItem('quiz_done')) document.getElementById('quiz-modal').classList.add('show'); }, 15000);
+function quizAns(ans) {
+  localStorage.setItem('quiz_done', '1');
+  closeQuiz();
+  const map = { '職場': '日常單瓶', '醫院': '雙入組合', '家裡': '全家守護', '自己': '日常單瓶' };
+  alert('✦ 根據你的回答\n推薦你：' + map[ans] + '\n\n已為你捲動到方案區 ✦');
+  scrollToPlan();
+}
+function closeQuiz() { document.getElementById('quiz-modal').classList.remove('show'); }
+
+// Checkout
+function goCheckout() { alert('✦ 前往結帳\n已選方案 · $' + selectedPrice + '\n\n（此處接金流 API）'); }
+</script>
+</body>
+</html>
