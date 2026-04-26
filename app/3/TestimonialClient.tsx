@@ -1087,7 +1087,29 @@ function Footer() {
         <p className="text-foreground/30 text-xs">
           &copy; {new Date().getFullYear()} AUS LIFE. All rights reserved.
         </p>
-        <p className="mt-3 text-foreground/40 text-xs">
+
+        {/* Contact info — larger fonts for accessibility */}
+        <div className="mt-8 pt-8 border-t border-border/30 space-y-2 text-foreground/70">
+          <p className="text-base md:text-lg">
+            <span className="text-foreground/50">公司｜</span>
+            <span className="font-medium">舒園國際開發有限公司</span>
+          </p>
+          <p className="text-base md:text-lg">
+            <span className="text-foreground/50">電話｜</span>
+            <a
+              href="tel:+886422752009"
+              className="font-semibold text-gold hover:text-gold-light transition-colors tabular-nums tracking-wide"
+            >
+              04-2275-2009
+            </a>
+          </p>
+          <p className="text-base md:text-lg">
+            <span className="text-foreground/50">地址｜</span>
+            <span className="font-medium">台中市太平區精美路 122 號</span>
+          </p>
+        </div>
+
+        <p className="mt-6 text-foreground/40 text-xs">
           網頁設計 by{" "}
           <a
             href="https://show.intelliverse.tw/"

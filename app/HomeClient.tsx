@@ -902,7 +902,29 @@ function Footer() {
         <p className="text-[oklch(0.45_0.01_85)] text-base">
           © 2026 仙佛護持・避邪淨化隨身噴霧. All rights reserved.
         </p>
-        <p className="mt-4 text-[oklch(0.5_0.01_85)] text-sm">
+
+        {/* Contact info — larger fonts for accessibility */}
+        <div className="mt-8 pt-8 border-t border-[oklch(1_0_0/6%)] space-y-2 text-[oklch(0.7_0.04_85)]">
+          <p className="text-base md:text-lg">
+            <span className="text-[oklch(0.55_0.02_85)]">公司｜</span>
+            <span className="font-medium">舒園國際開發有限公司</span>
+          </p>
+          <p className="text-base md:text-lg">
+            <span className="text-[oklch(0.55_0.02_85)]">電話｜</span>
+            <a
+              href="tel:+886422752009"
+              className="font-semibold text-[oklch(0.78_0.12_85)] hover:text-[oklch(0.88_0.12_85)] transition-colors tabular-nums tracking-wide"
+            >
+              04-2275-2009
+            </a>
+          </p>
+          <p className="text-base md:text-lg">
+            <span className="text-[oklch(0.55_0.02_85)]">地址｜</span>
+            <span className="font-medium">台中市太平區精美路 122 號</span>
+          </p>
+        </div>
+
+        <p className="mt-6 text-[oklch(0.5_0.01_85)] text-sm">
           網頁設計 by{" "}
           <a
             href="https://show.intelliverse.tw/"

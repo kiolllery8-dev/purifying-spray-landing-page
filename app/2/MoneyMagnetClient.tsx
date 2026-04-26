@@ -679,6 +679,23 @@ export default function MoneyMagnet() {
         <div className="mm-footer-brand">Money Magnet Mist</div>
         <p className="mm-footer-sub">發 財 噴 霧 · 植 物 能 量 密 法</p>
         <p className="mm-footer-meta">&copy; 2026 Money Magnet Mist · All Rights Reserved</p>
+
+        {/* Contact info — larger fonts for accessibility */}
+        <div className="mm-footer-contact">
+          <p>
+            <span className="mm-footer-contact-label">公司｜</span>
+            <span className="mm-footer-contact-value">舒園國際開發有限公司</span>
+          </p>
+          <p>
+            <span className="mm-footer-contact-label">電話｜</span>
+            <a href="tel:+886422752009" className="mm-footer-contact-tel">04-2275-2009</a>
+          </p>
+          <p>
+            <span className="mm-footer-contact-label">地址｜</span>
+            <span className="mm-footer-contact-value">台中市太平區精美路 122 號</span>
+          </p>
+        </div>
+
         <p className="mm-footer-credit">
           網頁設計 by{" "}
           <a href="https://show.intelliverse.tw/" target="_blank" rel="noopener noreferrer">

@@ -15,6 +15,27 @@ export default function NotFound() {
         >
           回首頁
         </Link>
+
+        {/* Contact info — larger fonts for accessibility */}
+        <div className="mt-10 pt-8 border-t border-white/10 space-y-2 text-slate-300 text-left">
+          <p className="text-base md:text-lg">
+            <span className="text-slate-400">公司｜</span>
+            <span className="font-medium">舒園國際開發有限公司</span>
+          </p>
+          <p className="text-base md:text-lg">
+            <span className="text-slate-400">電話｜</span>
+            <a
+              href="tel:+886422752009"
+              className="font-semibold text-amber-400 hover:text-amber-300 tabular-nums tracking-wide"
+            >
+              04-2275-2009
+            </a>
+          </p>
+          <p className="text-base md:text-lg">
+            <span className="text-slate-400">地址｜</span>
+            <span className="font-medium">台中市太平區精美路 122 號</span>
+          </p>
+        </div>
       </div>
     </div>
   );
