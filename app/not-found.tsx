@@ -23,7 +23,7 @@ export default function NotFound() {
             <span className="font-medium">舒園國際開發有限公司</span>
           </p>
           <p className="text-base md:text-lg">
-            <span className="text-slate-400">電話｜</span>
+            <span className="text-slate-400">📞 可打電話來訂購｜</span>
             <a
               href="tel:+886422752009"
               className="font-semibold text-amber-400 hover:text-amber-300 tabular-nums tracking-wide"

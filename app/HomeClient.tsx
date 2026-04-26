@@ -910,7 +910,7 @@ function Footer() {
             <span className="font-medium">舒園國際開發有限公司</span>
           </p>
           <p className="text-base md:text-lg">
-            <span className="text-[oklch(0.55_0.02_85)]">電話｜</span>
+            <span className="text-[oklch(0.55_0.02_85)]">📞 可打電話來訂購｜</span>
             <a
               href="tel:+886422752009"
               className="font-semibold text-[oklch(0.78_0.12_85)] hover:text-[oklch(0.88_0.12_85)] transition-colors tabular-nums tracking-wide"

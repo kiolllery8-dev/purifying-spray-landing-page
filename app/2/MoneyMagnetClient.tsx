@@ -687,7 +687,7 @@ export default function MoneyMagnet() {
             <span className="mm-footer-contact-value">舒園國際開發有限公司</span>
           </p>
           <p>
-            <span className="mm-footer-contact-label">電話｜</span>
+            <span className="mm-footer-contact-label">📞 可打電話來訂購｜</span>
             <a href="tel:+886422752009" className="mm-footer-contact-tel">04-2275-2009</a>
           </p>
           <p>
