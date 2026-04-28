@@ -258,6 +258,47 @@ body{
   gtag('js', new Date());
   gtag('config', 'G-HPQGP7L2W7');
 </script>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '929045363234091');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=929045363234091&ev=PageView&noscript=1"/></noscript>
+
+<!-- Conversion-tracking helpers -->
+<script>
+window.trackBeginCheckout = function(o){
+  try {
+    var qty = o.qty || 1, value = o.value || 0;
+    var itemId = o.itemId || 'spray', itemName = o.itemName || 'AUS LIFE 噴霧';
+    if (window.gtag) window.gtag('event', 'begin_checkout', {
+      currency: 'TWD', value: value,
+      items: [{ item_id: itemId, item_name: itemName,
+        price: qty > 0 ? Math.round(value/qty) : value, quantity: qty }]
+    });
+    if (window.fbq) window.fbq('track', 'InitiateCheckout', {
+      currency: 'TWD', value: value, num_items: qty,
+      content_ids: [itemId], content_type: 'product', content_name: itemName
+    });
+  } catch(e) { console.warn('trackBeginCheckout', e); }
+};
+window.trackLead = function(method){
+  try {
+    if (window.gtag) window.gtag('event', 'generate_lead', { method: method || 'line' });
+    if (window.fbq) window.fbq('track', 'Lead', { content_name: method || 'line' });
+  } catch(e) { console.warn('trackLead', e); }
+};
+</script>
 </head>
 <body>
 
@@ -1030,8 +1071,18 @@ function quizAns(ans) {
 function closeQuiz() { document.getElementById('quiz-modal').classList.remove('show'); }
 
 // Checkout
+const PLAN_NAMES = { 290: '日常 1 入', 520: '2 入組合', 990: '全家守護 4 入' };
+const PLAN_QTY = { 290: 1, 520: 2, 990: 4 };
 function goCheckout() {
   const url = PRODUCT_URLS[selectedPrice] || PRODUCT_URLS[520];
+  if (window.trackBeginCheckout) {
+    window.trackBeginCheckout({
+      qty: PLAN_QTY[selectedPrice] || 1,
+      value: selectedPrice,
+      itemId: 'auslife-spray-' + (PLAN_QTY[selectedPrice] || 1) + 'pack',
+      itemName: '避邪淨化噴霧 ' + (PLAN_NAMES[selectedPrice] || '組合')
+    });
+  }
   window.open(url, '_blank', 'noopener');
 }
 </script>

@@ -361,6 +361,7 @@ function HeroSection() {
           </a>
           <a
             href="#cta"
+            onClick={() => (window as any).trackViewItemList?.("/3 hero CTA")}
             className="px-8 py-4 bg-gold text-black rounded-full text-lg font-bold hover:bg-gold-light transition-all duration-300 shadow-lg shadow-gold/20"
           >
             立即體驗守護 ↓
@@ -915,6 +916,14 @@ function CTASection() {
                 href={b.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() =>
+                  (window as any).trackBeginCheckout?.({
+                    qty: b.qty,
+                    value: b.price,
+                    itemId: `auslife-spray-${b.qty}pack`,
+                    itemName: `避邪淨化隨身噴霧 ${b.qty} 入組`,
+                  })
+                }
                 className={`group relative flex items-center justify-between gap-4 p-5 md:p-6 rounded-2xl border transition-all duration-300 ${
                   isHighlight
                     ? "border-gold bg-gold/10 hover:bg-gold/20 shadow-lg shadow-gold/20"
@@ -960,6 +969,7 @@ function CTASection() {
             href={LINE_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => (window as any).trackLead?.("line_cta")}
             className="inline-flex items-center justify-center gap-2 px-10 py-4 bg-[#06C755] text-white rounded-full text-lg font-bold hover:bg-[#05b04c] transition-all duration-300 shadow-lg"
           >
             <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
@@ -1153,6 +1163,7 @@ function FloatingCTA() {
           <div className="flex gap-3">
             <a
               href="#cta"
+              onClick={() => (window as any).trackViewItemList?.("/3 floating CTA")}
               className="flex-1 py-3.5 bg-gold text-black rounded-full text-center text-lg font-bold"
             >
               立即選購 NT$290 起
@@ -1161,6 +1172,7 @@ function FloatingCTA() {
               href={LINE_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => (window as any).trackLead?.("line_floating")}
               className="py-3.5 px-5 bg-[#06C755] text-white rounded-full text-lg font-bold"
             >
               LINE

@@ -174,6 +174,12 @@ export default function MoneyMagnet() {
       { filter: "brightness(1.4)", transform: "scale(1.05)" },
       { filter: "brightness(1)", transform: "scale(1)" }
     ], { duration: 450, easing: "ease-out" });
+    (window as any).trackBeginCheckout?.({
+      qty: 1,
+      value: 388,
+      itemId: "auslife-money-magnet-mist",
+      itemName: "發財噴霧 Money Magnet Mist",
+    });
   }, [burst]);
 
   const handleNavBuyClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -183,6 +189,7 @@ export default function MoneyMagnet() {
       { filter: "brightness(1.4)", transform: "scale(1.05)" },
       { filter: "brightness(1)", transform: "scale(1)" }
     ], { duration: 450, easing: "ease-out" });
+    (window as any).trackViewItemList?.("/2 nav buy");
     // Smooth scroll to CTA verse
     e.preventDefault();
     const target = document.getElementById("mmCtaVerse");
