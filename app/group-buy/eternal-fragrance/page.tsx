@@ -125,13 +125,10 @@ export default function EternalFragranceGroupBuyPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-16" aria-labelledby="products-heading">
+      <section className="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-16" aria-label="商品資訊">
         <div className="mb-8 flex items-end justify-between gap-6">
           <div>
             <p className="text-sm font-semibold tracking-[0.15em] text-[#608174]">PRODUCT INFORMATION</p>
-            <h2 id="products-heading" className="mt-2 font-serif text-3xl text-[#173e34]">
-              本次需求商品
-            </h2>
           </div>
           <p className="hidden text-sm text-[#718078] sm:block">資料更新：2026/10/21</p>
         </div>
