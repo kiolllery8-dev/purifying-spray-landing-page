@@ -76,14 +76,14 @@ const products = [
 ];
 
 export const metadata: Metadata = {
-  title: "永恆香氛有限公司｜團購商品資料",
-  description: "永恆香氛有限公司團購需求商品之圖片、規格與產品資料。",
+  title: "永恆香氛有限公司",
+  description: "永恆香氛有限公司商品圖片、規格與產品資料。",
   alternates: {
     canonical: "/group-buy/eternal-fragrance/",
   },
   openGraph: {
-    title: "永恆香氛有限公司｜團購商品資料",
-    description: "本頁整理團購需求商品的圖片、規格與產品資訊。",
+    title: "永恆香氛有限公司",
+    description: "永恆香氛有限公司商品圖片、規格與產品資訊。",
     url: "/group-buy/eternal-fragrance/",
     type: "website",
   },
@@ -117,10 +117,6 @@ export default function EternalFragranceGroupBuyPage() {
             <h1 className="font-serif text-4xl font-semibold leading-tight text-[#173e34] sm:text-5xl">
               永恆香氛有限公司
             </h1>
-            <p className="mt-4 text-xl text-[#4d5f57]">團購商品資料</p>
-            <p className="mt-6 max-w-2xl leading-8 text-[#66736d]">
-              本頁整理本次需求商品的圖片、規格與簡要介紹，方便瀏覽與比較。各商品實際包裝、成分、售價及供貨狀況，請以澳思萊官網或後續確認資料為準。
-            </p>
           </div>
           <div className="w-fit rounded-2xl border border-[#ccd5cf] bg-white/70 px-5 py-4 shadow-sm backdrop-blur">
             <span className="block text-xs tracking-[0.14em] text-[#718078]">SELECTED ITEMS</span>
