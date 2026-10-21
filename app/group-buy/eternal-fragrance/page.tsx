@@ -8,6 +8,11 @@ const products = [
     image: "https://cdn.auslife.tw/uploads/1777269827109-07c95798.jpg",
     description:
       "金磚造型香皂，使用時可搓揉出細緻泡沫，適合作為日常沐浴清潔，也可搭配節慶或贈禮情境選用。",
+    details: [
+      "黃金爆富皂以醒目的金磚造型呈現，兼具日常清潔用品與主題贈禮的視覺特色。使用時以清水沾濕皂體，在掌心或沐浴用品上搓揉起泡，再依一般清潔方式使用。",
+      "125g±10g 的份量適合居家使用，也能搭配開工、入厝、節慶或祝福主題組合。實際香氣、色澤及包裝細節可能因批次略有差異，請以收到的商品為準。",
+    ],
+    highlights: ["金磚造型", "日常清潔", "節慶贈禮"],
     url: "https://auslife.tw/products/beauty-crown-125g10g",
   },
   {
@@ -17,6 +22,11 @@ const products = [
     image: "https://cdn.auslife.tw/uploads/1777269828229-4a60257e.jpg",
     description:
       "清新的尤加利香氣搭配隨身滾珠設計，體積輕巧，方便在通勤、工作或旅行時攜帶使用。",
+    details: [
+      "尤加利滾珠精油以清新、帶有草本感的尤加利氣息為主，5.3ml 小容量方便放入口袋、隨身包或旅行收納袋。滾珠頭可控制局部使用範圍，不需直接以手沾取。",
+      "適合安排在通勤、工作空檔、長途移動或戶外活動時使用。請依商品標示塗抹於適用部位，避開眼周、黏膜及受傷肌膚；初次使用者可先少量測試。",
+    ],
+    highlights: ["尤加利香氣", "5.3ml 隨身瓶", "滾珠設計"],
     url: "https://auslife.tw/products/aus-life-53ml",
   },
   {
@@ -26,6 +36,11 @@ const products = [
     image: "https://cdn.auslife.tw/uploads/1777269815874-5f00fe3a.jpg",
     description:
       "按壓即可產生綿密泡沫，可作為日常臉部潔顏與卸除淡妝使用，讓清潔步驟簡單俐落。",
+    details: [
+      "潔顏洗卸慕斯採按壓式泡沫瓶，省去另外搓泡的步驟。綿密泡沫可在清潔時減少反覆摩擦，適合作為每日臉部清潔，亦可依產品標示用於卸除日常淡妝。",
+      "使用時先以清水潤濕肌膚，取適量泡沫輕柔按摩，再以清水洗淨。濃妝、防水型彩妝或眼唇彩妝，仍建議依個人需要搭配專用卸妝產品。",
+    ],
+    highlights: ["按壓式泡沫", "日常潔顏", "150ml 容量"],
     url: "https://auslife.tw/products/auslife-cha-shu-ning-meng-xiang-tao-jie-yan-xi-xie-mu-si-150ml",
   },
   {
@@ -35,6 +50,11 @@ const products = [
     image: "https://cdn.auslife.tw/uploads/1777269832629-faecb3a5.jpg",
     description:
       "以薰衣草、依蘭與洋甘菊等花草香氣調和的滾珠，可安排於晚間休息或睡前的日常聞香儀式。",
+    details: [
+      "這款複方滾珠以薰衣草、依蘭與洋甘菊等花草香氣調和，氣味柔和，適合融入夜晚休息前的個人聞香習慣。10ml 滾珠瓶方便控制用量，也適合放在床邊或旅行盥洗包中。",
+      "可依產品標示於適用部位少量滾動，搭配安靜閱讀、伸展或休息前的日常程序使用。本品為香氛及外用產品，並非睡眠治療或醫療用途。",
+    ],
+    highlights: ["花草複方香氣", "晚間聞香", "10ml 滾珠瓶"],
     url: "https://auslife.tw/products/aus-garden-10ml-7",
   },
   {
@@ -44,6 +64,11 @@ const products = [
     image: "https://cdn.auslife.tw/uploads/1777269833510-a4f06245.jpg",
     description:
       "以經典薰衣草花香為主的隨身滾珠，適合在休息、閱讀或睡前使用，為日常增添柔和香氣。",
+    details: [
+      "薰衣草精油滾珠以熟悉的薰衣草花香為主，氣味柔和，適合偏好單一主調香氣的人。滾珠包裝讓使用更方便，10ml 規格也利於隨身攜帶。",
+      "可在閱讀、休息、旅行住宿或晚間個人儀式中，依包裝標示少量使用。香氣感受因人而異，初次使用或肌膚較敏感者，建議先於小範圍測試。",
+    ],
+    highlights: ["薰衣草花香", "日常聞香", "方便攜帶"],
     url: "https://auslife.tw/products/aus-garden-10ml-2",
   },
   {
@@ -53,6 +78,11 @@ const products = [
     image: "https://cdn.auslife.tw/uploads/1777269827848-61500473.jpg",
     description:
       "清新的薄荷香氣搭配方便使用的滾珠設計，適合在悶熱天氣、工作空檔或需要清新感時隨身使用。",
+    details: [
+      "薄荷滾珠精油以鮮明的薄荷氣息為特色，使用時帶來清新、沁涼的感受。5.3ml 小瓶身不占空間，適合放在工作包、運動袋或旅行隨身用品中。",
+      "可依產品標示於適用部位少量滾動，適合悶熱天氣、工作空檔或外出時使用。請避免接觸眼睛、黏膜及受傷肌膚，使用後若感到不適應立即停止。",
+    ],
+    highlights: ["薄荷清新感", "小巧隨身", "局部滾動使用"],
     url: "https://auslife.tw/products/auslife-bao-he-gun-zhu-jing-you-5.3ml",
   },
   {
@@ -62,6 +92,11 @@ const products = [
     image: "/group-buy/eternal-fragrance/pp30-peppermint-roll-on.png",
     description:
       "以清新薄荷香氣為特色，滾珠設計可直接於局部肌膚輕柔滾動，使用時帶來清涼、清爽的觸感。30ml 容量兼顧使用份量與攜帶便利性，可放在辦公桌、隨身包或旅行收納袋中，依產品標示於需要時使用。",
+    details: [
+      "複合精油舒緩滾珠以清新薄荷氣息為主要特色，滾動時帶來清涼、清爽的使用感受。滾珠頭可貼合局部肌膚，方便控制使用範圍，不必直接以手沾取。",
+      "30ml 規格兼顧日常使用份量與攜帶便利性，可放在辦公桌、隨身包或旅行收納袋中。請依實品標示使用；本品重點為香氣與涼感體驗，並非藥品或醫療用品。",
+    ],
+    highlights: ["30ml 容量", "複合清新氣息", "滾珠設計"],
     note: "實際成分、適用部位與使用方式請以產品包裝標示為準。",
   },
   {
@@ -71,6 +106,11 @@ const products = [
     image: "https://cdn.auslife.tw/uploads/1777269828817-aa6825cc.jpg",
     description:
       "含茶樹油精華的隨身霜，25ml 小容量便於日常或戶外活動攜帶；使用方式與適用部位請依產品標示。",
+    details: [
+      "全效舒緩神奇茶樹霜以茶樹油精華為商品特色，採25ml 小容量包裝，適合放在居家用品櫃、隨身包或戶外活動收納袋中備用。霜狀質地便於依需要取用。",
+      "使用前請閱讀包裝上的成分、適用部位與注意事項，依標示取適量塗抹。避免接觸眼睛、黏膜及傷口；肌膚較敏感者可先進行小範圍測試。",
+    ],
+    highlights: ["茶樹油精華", "25ml 隨身容量", "霜狀質地"],
     url: "https://auslife.tw/products/auslife-quan-xiao-shu-huan-shen-qi-cha-shu-shuang-25ml",
   },
 ];
@@ -159,21 +199,57 @@ export default function EternalFragranceGroupBuyPage() {
                 </h3>
                 <p className="mt-4 leading-7 text-[#5f6d66]">{product.description}</p>
                 {product.note && <p className="mt-3 text-sm leading-6 text-[#7b867f]">{product.note}</p>}
-                {product.url ? (
-                  <a
-                    href={product.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-6 inline-flex min-h-11 items-center rounded-full bg-[#173e34] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#245749] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173e34]"
-                  >
-                    查看澳思萊官網資料
-                    <span aria-hidden="true" className="ml-2">↗</span>
-                  </a>
-                ) : (
-                  <p className="mt-6 inline-flex min-h-11 items-center rounded-full border border-[#cfd8d2] px-5 py-2.5 text-sm font-medium text-[#66736d]">
-                    商品資料以實品標示為準
-                  </p>
-                )}
+                <details className="group/detail mt-6 overflow-hidden rounded-2xl border border-[#d7dfda] bg-[#f8faf7]">
+                  <summary className="flex min-h-12 list-none items-center justify-between gap-4 px-5 py-3 font-semibold text-[#173e34] transition-colors hover:bg-[#eef3ef] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[#173e34] [&::-webkit-details-marker]:hidden">
+                    <span>查看詳細介紹</span>
+                    <span
+                      aria-hidden="true"
+                      className="text-xl leading-none transition-transform duration-200 group-open/detail:rotate-45"
+                    >
+                      ＋
+                    </span>
+                  </summary>
+                  <div className="border-t border-[#dfe5e1]">
+                    <div className="flex min-h-52 items-center justify-center bg-white p-5">
+                      <img
+                        src={product.image}
+                        alt={`${product.name} ${product.size} 詳細介紹圖`}
+                        className="max-h-48 max-w-full object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="space-y-4 p-5 text-sm leading-7 text-[#5f6d66] sm:p-6">
+                      {product.details.map((paragraph) => (
+                        <p key={paragraph}>{paragraph}</p>
+                      ))}
+                      <div className="flex flex-wrap gap-2 pt-1">
+                        {product.highlights.map((highlight) => (
+                          <span
+                            key={highlight}
+                            className="rounded-full border border-[#cfdbd4] bg-white px-3 py-1 text-xs font-medium text-[#416457]"
+                          >
+                            {highlight}
+                          </span>
+                        ))}
+                      </div>
+                      {product.url ? (
+                        <a
+                          href={product.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex min-h-11 items-center rounded-full bg-[#173e34] px-5 py-2.5 font-semibold text-white transition-colors hover:bg-[#245749] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#173e34]"
+                        >
+                          查看澳思萊官網完整說明
+                          <span aria-hidden="true" className="ml-2">↗</span>
+                        </a>
+                      ) : (
+                        <p className="rounded-xl border border-[#ded8c9] bg-[#fffaf0] px-4 py-3 text-xs leading-6 text-[#766b51]">
+                          此商品目前沒有可核對的澳思萊官網專屬頁面，完整成分與使用方式請以實品標示為準。
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </details>
               </div>
             </article>
           ))}
