@@ -61,7 +61,7 @@ const products = [
     size: "30ml",
     image: "/group-buy/eternal-fragrance/pp30-peppermint-roll-on.png",
     description:
-      "以清新薄荷香氣為特色，滾珠設計可直接於局部肌膚輕柔滾動，使用時帶來清涼、清爽的觸感。30ml 規格方便隨身攜帶。",
+      "以清新薄荷香氣為特色，滾珠設計可直接於局部肌膚輕柔滾動，使用時帶來清涼、清爽的觸感。30ml 容量兼顧使用份量與攜帶便利性，可放在辦公桌、隨身包或旅行收納袋中，依產品標示於需要時使用。",
     note: "實際成分、適用部位與使用方式請以產品包裝標示為準。",
   },
   {
@@ -97,11 +97,11 @@ export default function EternalFragranceGroupBuyPage() {
           <div className="flex items-center justify-between gap-6">
             <a
               href="https://auslife.store/"
-              className="font-serif text-lg tracking-[0.14em] text-[#f1e7c7]"
+              className="font-serif text-lg tracking-[0.05em] text-[#f1e7c7]"
             >
               AUS LIFE
             </a>
-            <span className="rounded-full border border-white/20 px-3 py-1 text-xs tracking-[0.12em] text-white/75">
+            <span className="rounded-full border border-white/20 px-3 py-1 text-xs tracking-[0.05em] text-white/75">
               GROUP BUY
             </span>
           </div>
@@ -111,7 +111,7 @@ export default function EternalFragranceGroupBuyPage() {
       <section className="border-b border-[#d9ded8] bg-[linear-gradient(135deg,#f8f5ed_0%,#e8eee8_100%)]">
         <div className="mx-auto grid max-w-6xl gap-8 px-5 py-14 sm:px-8 md:grid-cols-[1fr_auto] md:items-end md:py-20">
           <div>
-            <p className="mb-4 text-sm font-semibold tracking-[0.18em] text-[#477063]">
+            <p className="mb-4 text-sm font-semibold tracking-[0.05em] text-[#477063]">
               ETERNAL FRAGRANCE
             </p>
             <h1 className="font-serif text-4xl font-semibold leading-tight text-[#173e34] sm:text-5xl">
@@ -119,7 +119,7 @@ export default function EternalFragranceGroupBuyPage() {
             </h1>
           </div>
           <div className="w-fit rounded-2xl border border-[#ccd5cf] bg-white/70 px-5 py-4 shadow-sm backdrop-blur">
-            <span className="block text-xs tracking-[0.14em] text-[#718078]">SELECTED ITEMS</span>
+            <span className="block text-xs tracking-[0.05em] text-[#718078]">SELECTED ITEMS</span>
             <strong className="mt-1 block font-serif text-3xl text-[#173e34]">{products.length} 項</strong>
           </div>
         </div>
@@ -128,7 +128,7 @@ export default function EternalFragranceGroupBuyPage() {
       <section className="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-16" aria-label="商品資訊">
         <div className="mb-8 flex items-end justify-between gap-6">
           <div>
-            <p className="text-sm font-semibold tracking-[0.15em] text-[#608174]">PRODUCT INFORMATION</p>
+            <p className="text-sm font-semibold tracking-[0.05em] text-[#608174]">PRODUCT INFORMATION</p>
           </div>
           <p className="hidden text-sm text-[#718078] sm:block">資料更新：2026/10/21</p>
         </div>
@@ -149,7 +149,7 @@ export default function EternalFragranceGroupBuyPage() {
               </div>
               <div className="border-t border-[#edf0ed] p-6 sm:p-7">
                 <div className="mb-3 flex items-center justify-between gap-4">
-                  <span className="rounded-full bg-[#e8f0ec] px-3 py-1 text-xs font-bold tracking-[0.1em] text-[#366052]">
+                  <span className="rounded-full bg-[#e8f0ec] px-3 py-1 text-xs font-bold tracking-[0.05em] text-[#366052]">
                     {product.sku}
                   </span>
                   <span className="text-sm font-medium text-[#718078]">{product.size}</span>
@@ -178,6 +178,51 @@ export default function EternalFragranceGroupBuyPage() {
             </article>
           ))}
         </div>
+
+        <article className="mt-12 overflow-hidden rounded-[1.75rem] border border-[#d5ddd7] bg-[#173e34] text-white shadow-[0_18px_50px_rgba(31,62,51,0.12)] sm:mt-16">
+          <div className="grid lg:grid-cols-[0.95fr_1.05fr]">
+            <div className="flex min-h-[420px] items-center justify-center bg-[#f4f6f1] p-6 sm:p-10 lg:min-h-[640px]">
+              <img
+                src="/group-buy/eternal-fragrance/pp30-peppermint-roll-on.png"
+                alt="PP30 複合精油舒緩滾珠 30ml 詳細商品圖"
+                className="max-h-[590px] w-full object-contain"
+                loading="lazy"
+              />
+            </div>
+            <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-14">
+              <p className="text-sm font-semibold tracking-[0.05em] text-[#bad4c8]">PP30 · 30ml</p>
+              <h2 className="mt-3 font-serif text-3xl font-semibold leading-tight text-white sm:text-4xl">
+                複合精油舒緩滾珠
+              </h2>
+              <p className="mt-6 leading-8 text-white/80">
+                以清新薄荷氣息為主要特色，滾動時帶來清涼、清爽的使用感受。滾珠頭可貼合局部肌膚，方便控制使用範圍，不必直接以手沾取，讓日常使用更簡單。
+              </p>
+              <p className="mt-4 leading-8 text-white/80">
+                30ml 規格適合放在辦公桌、隨身包或旅行收納袋中，可依產品標示，在工作空檔、運動後或外出時使用。它的重點是提供清新香氣與涼感體驗，並非藥品或醫療用品。
+              </p>
+
+              <div className="mt-8 grid gap-3 sm:grid-cols-3">
+                {[
+                  ["30ml", "日常使用容量"],
+                  ["滾珠設計", "方便局部使用"],
+                  ["清新氣息", "薄荷涼感體驗"],
+                ].map(([title, text]) => (
+                  <div key={title} className="rounded-2xl border border-white/15 bg-white/5 p-4">
+                    <strong className="block text-[#f1e7c7]">{title}</strong>
+                    <span className="mt-1 block text-sm leading-6 text-white/65">{text}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 border-t border-white/15 pt-7">
+                <h3 className="font-semibold text-[#f1e7c7]">使用與注意事項</h3>
+                <p className="mt-3 text-sm leading-7 text-white/70">
+                  請依產品包裝標示使用，避開眼周、黏膜及受傷肌膚。初次使用或肌膚較敏感者，建議先少量測試；如有不適請停止使用。產品成分、適用部位及保存方式以實品標示為準。
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
       </section>
 
       <footer className="border-t border-[#d9ded8] bg-[#e8ebe6]">
@@ -185,7 +230,7 @@ export default function EternalFragranceGroupBuyPage() {
           <p>
             本頁為商品資料整理，不包含正式報價、交易條件或促購活動。商品資訊可能因官網更新而調整，實際內容以商品包裝及澳思萊官網即時資料為準。
           </p>
-          <p className="mt-3 text-xs tracking-[0.08em] text-[#819088]">AUS LIFE · GROUP BUY INFORMATION</p>
+          <p className="mt-3 text-xs tracking-[0.05em] text-[#819088]">AUS LIFE · GROUP BUY INFORMATION</p>
         </div>
       </footer>
     </main>
